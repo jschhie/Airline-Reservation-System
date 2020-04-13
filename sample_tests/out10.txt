@@ -1,0 +1,17 @@
+
+ECS Flight Reservation Menu
+0. Exit.
+1. Add Passenger.
+
+Please enter your choice: Flt# Origin               Destination
+230  Reno                 Los Angeles
+463  Stockton             Los Angeles
+770  Sacramento           San Francisco
+221  Reno                 Davis
+
+Flight number (0 = exit): 
+ECS Flight Reservation Menu
+0. Exit.
+1. Add Passenger.
+
+Please enter your choice: Goodbye.

@@ -1,0 +1,59 @@
+4
+230
+Reno
+Los Angeles
+8 2 10
+8A Gary Lam
+5A Harnit Prado
+1A Pele Chan
+8B David Shah
+2A Ryan Chock
+7B Daniel Mak
+4B Sze-Kin Barahona
+2B Danny Tran
+5B Tri Chiong
+3A Aren Chuang
+463
+Stockton
+Los Angeles
+8 2 14
+5B Arjun Riordan
+5A Catherine Gawthorpe
+3A Eric Brown
+6B Tony Iwahashi
+6A Joanne Lam
+7B Erich Helmhold
+2A Mikhail Ip
+1A Dinh-Tuong Leung
+4A David Wong
+1B Vincent Ho
+2B Angela Chang
+3B Dernie Tran
+8B Man Li Horng
+7A William Chaves
+770
+Sacramento
+San Francisco
+6 2 10
+5A Chukwuemeka Mansouri
+5B Hwai-En Eng
+3A Victor Gunel
+2A Sze-Kin Barahona
+3B Sylvia Dinh
+6A Cary Tong
+1A Thaya Hung
+6B Way Lozano
+1B Jimmy Sudame
+4A David Shah
+221
+Reno
+Davis
+7 4 8
+3C Lawrence Heinz
+7D Men-Jyn Maung
+2B Melvin Begusch
+4D Alison Alabanza
+6B Ryan Balog
+3D Michael Park
+1A Chi Ho Tung
+6C Christine Law

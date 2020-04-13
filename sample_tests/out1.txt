@@ -1,0 +1,6 @@
+
+ECS Flight Reservation Menu
+0. Exit.
+1. Add Passenger.
+
+Please enter your choice: Goodbye.

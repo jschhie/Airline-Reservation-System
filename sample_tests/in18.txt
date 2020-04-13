@@ -1,0 +1,22 @@
+1
+230
+Abraham Lincoln
+3
+B
+1
+463
+George Washington
+4
+B
+1
+770
+Barack Obama
+2
+B
+1
+221
+George Bush
+7
+C
+0
+

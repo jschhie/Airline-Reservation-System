@@ -1,0 +1,32 @@
+
+ECS Flight Reservation Menu
+0. Exit.
+1. Add Passenger.
+
+Please enter your choice: Flt# Origin               Destination
+230  Reno                 Los Angeles
+463  Stockton             Los Angeles
+770  Sacramento           San Francisco
+221  Reno                 Davis
+
+Flight number (0 = exit): Please enter the name of the passenger: ROW# AB
+ 1   X-
+ 2   XX
+ 3   X-
+ 4   -X
+ 5   XX
+ 6   --
+ 7   -X
+ 8   XX
+
+X = reserved.
+
+Please enter the row of the seat you wish to reserve: That is an invalid row number.
+Please try again.
+
+Please enter the row of the seat you wish to reserve: Please enter the seat letter you wish to reserve: 
+ECS Flight Reservation Menu
+0. Exit.
+1. Add Passenger.
+
+Please enter your choice: Goodbye.
