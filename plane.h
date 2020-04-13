@@ -25,6 +25,7 @@ public:
 
     Plane(int numRows, int numSeats, int numRsrv);
     ~Plane();
+    int* getPlaneInfo() const;
     friend istream& operator>> (istream& is, Plane& planeRef); 
 
 }; // Plane Class

@@ -27,7 +27,8 @@ class Flight
 public:
     Flight();
     ~Flight();
-    //void getInfo();
+    int getFlightNum() const;
+    int* getPlaneCapacity() const;
     friend ostream& operator<< (ostream& os, const Flight& flightRef);
     friend istream& operator>> (istream& is, Flight& flightRef);
 

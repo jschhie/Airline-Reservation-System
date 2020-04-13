@@ -24,6 +24,21 @@ Flight::~Flight()
 }
 
 
+int Flight::getFlightNum() const { return flightNum; }
+
+
+int* Flight::getPlaneCapacity() const
+{
+    if(plane)
+    {
+        cout << "plane exists\n";
+        return plane->getPlaneInfo();
+    }
+    // Otherwise Plane DNE for Flight
+    return NULL;
+}
+
+
 ostream& operator<< (ostream& os, const Flight& flightRef) 
 {
     os << flightRef.flightNum << "\t\t";
@@ -47,9 +62,6 @@ istream& operator>> (istream& is, Flight& flightRef)
         is.getline(line, 20);
         strcpy(flightRef.destination, line);
         
-        //cout << "origin: " << flightRef.origin << endl;
-        //cout << "dest: " << flightRef.destination << endl;
-
         // Copy over Plane Info
         is.getline(line, 80, ' ');
         numRows = stoi(line);

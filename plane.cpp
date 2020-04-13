@@ -32,6 +32,15 @@ Plane::~Plane()
 } // ~Plane() Deconstructor
 
 
+int* Plane::getPlaneInfo() const
+{
+    int* result;
+    static int dimensions[2] = {rows, width};
+    result = &(dimensions[0]);
+    cout << "returning dimensions\n";
+    return result; // [rows, width] Format
+}
+
 istream& operator>> (istream& is, Plane& planeRef)
 {
 

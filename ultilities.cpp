@@ -72,7 +72,37 @@ void showFlights(const Flight* currFlights, int numFlights)
 } // showFlights()
 
 
-void selectFlight(Flight* currFlights, int numFlights)
+void selectFlight(const Flight* currFlights, int numFlights)
 {
+    char yourFlight[80];
+    int intFlight; // Assuming valid input with all digits    
+    do 
+    {
+        cout << "Flight Number (Enter 0 to return to Main Menu) >> ";
+        cin >> yourFlight;
+        intFlight = stoi(yourFlight);
+        
+        if(intFlight == 0)
+        {
+            cout << "Returning to Main Menu\n";
+            break;
+        }
+        else if(intFlight > 0)
+        {
+            findFlight(currFlights, numFlights, intFlight);
+            break;
+        }
+        cout << "We do not have a flight number #" << intFlight << endl;
+        cout << "Please try again." << endl;
+    } while(intFlight);
+
     return;
+        
 } // selectFlight()
+
+void findFlight(const Flight* currFlights, int numFlights, int target)
+{
+    cout << "Finding Flight#" << target << " in Airline System\n";
+    return;
+}
+
