@@ -10,7 +10,6 @@
 
 using namespace std;
 
-
 /* Foward Declarations */
 void printMenu();
 int checkChoice(const char* yourChoice);

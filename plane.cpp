@@ -37,7 +37,7 @@ int Plane::getReservations() const { return reserved; } // getReservations()
 
 void Plane::addPassenger(const char* fullName)
 {
-    int yourRow = -1, yourSeat = 0, index = 0;
+    int yourRow = -1, yourSeat = 0, index = -1;
     char line[80], seatLabel;
     cout << "\nX = reserved.\n";
 
@@ -66,22 +66,21 @@ void Plane::addPassenger(const char* fullName)
 
         for(int c = 0; c < strlen(line); c++)
         {
-            if(iswspace(line[c]))
-                continue;
-            else if(isalpha(line[c]) && index == 0)
+            if(iswspace(line[c])) continue;
+            else if(isalpha(line[c]) && index == -1)
             {
                 index = c;
                 continue;
             }
             // Otherwise, invalid char seen
-            index = 0; 
+            index = -1; 
             if(line[c] == '0')
                 return; // Return to Main Menu
             break;
         } // Check each character, ignore whitespace
 
         // Outside for loop
-        if(index)
+        if(index != -1)
             break; // Exit while loop
         cout << "Invalid seat request. Please try again.\n";
     

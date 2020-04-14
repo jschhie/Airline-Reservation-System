@@ -2,9 +2,11 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+
 #include "flight.h"
 
 using namespace std;
+
 
 Flight::Flight() : flightNum(-1)
 {

@@ -3,7 +3,6 @@
 using namespace std;
 
 
-
 /* Subfunctions */
 void printMenu()
 {
@@ -48,6 +47,7 @@ int checkChoice(const char* yourChoice)
 
 int getChoice()
 {
+
     char choice[80];
     int result = 0;
 
@@ -60,8 +60,8 @@ int getChoice()
             break; // Valid choices are 0 and 1
         cout << "Choice must be either 0 or 1. Please try again.\n\n";
     } // while invalid choice received
-
-    return result; // Valid input received
+    
+    return result;
 
 } // getChoice()
 
@@ -81,6 +81,7 @@ void showFlights(const Flight* currFlights, int numFlights)
     
     for(int i = 0; i < numFlights; i++)
         cout << currFlights[i];
+    
     cout << endl;
     return;
 
@@ -106,10 +107,9 @@ void selectFlight(Flight* currFlights, int numFlights)
         cout << "Please try again.\n\n";
 
     } while(intFlight);
-    
     return;
-        
 } // selectFlight()
+
 
 bool findFlight(Flight* currFlights, int numFlights, int target)
 {
@@ -128,7 +128,6 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
             return true;
         }
     }
-
     return false;
 } // findFlight()
 
@@ -137,18 +136,14 @@ void selectSeat(Plane* yourPlane, const char* fullName)
 {
     int capacity = yourPlane->getWidth() * yourPlane->getRows();
     int numOccupied = yourPlane->getReservations();
-
     // First check if yourPlane is full
     if (capacity == numOccupied)
     {
         cout << "Unfortunately requested Flight is full.\n\n"; 
         return;
     }
-        
     // Display Header and Plane Seating Visual
     cout << *yourPlane;
     yourPlane->addPassenger(fullName);
-
     return;
-
 } // selectSeat()
