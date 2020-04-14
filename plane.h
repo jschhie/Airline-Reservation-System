@@ -22,6 +22,7 @@ public:
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 
     friend ostream& operator<< (ostream& os, const Plane& planeRef);
+
 }; // Plane Class
 
 #endif /* PLANE_H */
