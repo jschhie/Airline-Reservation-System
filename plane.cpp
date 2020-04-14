@@ -1,9 +1,12 @@
 #include <cctype>
 #include <cstdlib>
+#include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <string>
+
 #include "plane.h"
+#include "ultilities.h"
 
 using namespace std;
 
@@ -34,51 +37,61 @@ int Plane::getReservations() const { return reserved; } // getReservations()
 
 void Plane::addPassenger(const char* fullName)
 {
-    int yourRow = 0, yourSeat = 0;
+    int yourRow = -1, yourSeat = 0, index = 0;
     char line[80], seatLabel;
-
     cout << "\nX = reserved.\n";
-    cout << "Please enter the row of the seat you wish to reserved >> ";
-    cin.getline(line, 80);
-    
-    // Check requested row
-    for(int c = 0; c < strlen(line); c++)
-        if(!isdigit(line[c])) return;
 
-    yourRow = stoi(line);
-    if(yourRow <= 0 || yourRow > rows)
+    do // Get and validate row number
     {
-        cout << "There is no row #" << yourRow << " on this flight.\n";
-        cout << "TODO: Please try again.\n";
-        return;
-    }
-    
-    // Get and validate seat label
-    cout << "Please enter the seat letter you wish to reserve on row #" << yourRow << " >> ";
-    cin.getline(line, 80);
-
-    int seatChar = 0, alphaSeen = 0;
-    for(int c = 0; c < strlen(line); c++)
-    {
-        if(isalpha(line[c]))
-        {
-            if(alphaSeen == 0)
-            {
-                seatChar = c;
-                alphaSeen += 1;
-            }
-            else // Too many letters provided
-                return;
-        }
-        else if(!iswspace(line[c])) // Invalid character
+        cout << "(Enter 0 to return to Main Menu.)\n";
+        cout << "Please enter the row of the seat you wish to reserved >> ";
+        cin.getline(line, 80);
+        yourRow = checkChoice(line);
+        if(yourRow > 0 && yourRow <= rows)
+            break;
+        else if(yourRow == 0) 
             return;
-    }
+        else
+        {
+            cout << "There is no row #" << line << " on this flight.\n";
+            cout << "Please try again.\n\n";
+        } 
+    } while(1);
+    
+    do // Get and validate seat label
+    {
+        cout << "\n\n(Enter 0 to return to Main Menu.)\n";
+        cout << "Please enter the seat letter you wish to reserve on row #" << yourRow << " >> ";
+        cin.getline(line, 80);
 
-    seatLabel = toupper(line[seatChar]);
+        for(int c = 0; c < strlen(line); c++)
+        {
+            if(iswspace(line[c]))
+                continue;
+            else if(isalpha(line[c]) && index == 0)
+            {
+                index = c;
+                continue;
+            }
+            // Otherwise, invalid char seen
+            index = 0; 
+            if(line[c] == '0')
+                return; // Return to Main Menu
+            break;
+        } // Check each character, ignore whitespace
+
+        // Outside for loop
+        if(index)
+            break; // Exit while loop
+        cout << "Invalid seat request. Please try again.\n";
+    
+    } while(1);
+
+    seatLabel = toupper(line[index]);
     yourSeat = int(seatLabel) - int('A'); // Starts at index 0
     if (yourSeat >= width)
     {
-        cout << "addPassenger() Error: Requested seat letter DNE on this flight.\n";
+        cout << "Requested seat letter DNE on this flight.\n";
         return;
     }
 
@@ -90,7 +103,7 @@ void Plane::addPassenger(const char* fullName)
     {
         strcpy(passengers[offset+yourSeat], fullName);
         reserved++;
-    }
+    } 
 
 } // addPassenger()
 
@@ -98,10 +111,7 @@ void Plane::addPassenger(const char* fullName)
 Plane::~Plane()
 {
     for (int count = 0; count < rows*width; count++)
-    {
-        //cout << "Contains: " << passengers[count] << endl;
         delete [] passengers[count];
-    }
     delete [] passengers;
 } // ~Plane() Deconstructor
 
@@ -115,7 +125,6 @@ istream& operator>> (istream& is, Plane& planeRef)
     
     char curr_seat;
     int length, row_num, col_num;
-    
     
     for(int i = 0; i < planeRef.reserved; i++)
     {
@@ -152,10 +161,11 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
         letters[c] = 'A' + c;
     letters[numCols] = '\0';
 
-    cout << "Row Number#" << setw(8) <<  letters << endl;
+    char rowHeader[] = "\nRow Number#";
+    cout << rowHeader << setw(8) <<  letters << endl << endl;
     
     int offset = 0; 
-    char symbols[numCols+1]; // X: Reserved, -: Available seat
+    char symbols[numCols+1]; // Let X: Reserved, _: Available seat
     for(int i = 0; i < numRows; i++)
     {
         offset = i * numCols;
@@ -164,11 +174,12 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
             if(strlen(planeRef.passengers[offset+j]))
                 symbols[j] = 'X';
             else
-                symbols[j] = '-';
+                symbols[j] = '_';
         }
         symbols[numCols] = '\0';
         cout << i+1 << setw(18) << symbols << endl;
     }
+   
     return os;
 
 } // operator>>()

@@ -15,20 +15,33 @@ void printMenu()
 
 int checkChoice(const char* yourChoice)
 {
-    int length = strlen(yourChoice);
-    int intChoice;
-    
-    if (length != 1 || !isdigit(yourChoice[0]))
-        cout << "Not an available choice." << endl;
-    else
+
+    int length = strlen(yourChoice), index = -1;
+    if(length) 
     {
-        intChoice = atoi(&yourChoice[0]);
-        if (intChoice == 0 || intChoice == 1)
-            return intChoice; // Selected valid option
+        for(int i = 0; i < length; i++)
+        {
+            if(isdigit(yourChoice[i]))
+            {
+                if(index == -1) index = i;
+                else
+                {
+                    index = -1;
+                    break;
+                } // Reset flag (index), digit already seen
+            }
+            else if(!iswspace(yourChoice[i]))
+            {
+                cout << "Not an available choice.\n";
+                index = -1;
+                break; 
+            } // Reset flag, raise error
+        } // Check each character and ignore whitespaces
     } // Note: Available options are single digits (ie. values 0 or 1)
     
-    cout << "Choice must be either 0 or 1. Please try again.\n" << endl;
-    return -1; // Invalid option
+    if(index == -1) return -1;
+    // Otherwise, convert from char to integer value
+    return (atoi(&yourChoice[index]));
 
 } // checkChoice()
 
@@ -41,12 +54,11 @@ int getChoice()
     while(true)
     {
         printMenu();
-        cin >> choice;
-        
+        cin.getline(choice, 80);
         result = checkChoice(choice);
-        if(result != -1)
-            break;
-
+        if(result == 0 || result == 1)
+            break; // Valid choices are 0 and 1
+        cout << "Choice must be either 0 or 1. Please try again.\n\n";
     } // while invalid choice received
 
     return result; // Valid input received
