@@ -57,10 +57,8 @@ int main()
         // Get next choice
         choice = getChoice();
     } // Running loop
-   
     
-    // Create new file for current reservations
-    
+    // Create new file for current reservations   
     fstream fout;
     fout.open("reservations2.txt", ios::out);
     
@@ -81,4 +79,3 @@ int main()
     return 0;
 
 } // End of main()
-
