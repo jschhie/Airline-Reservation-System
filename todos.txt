@@ -1,0 +1,21 @@
+==================================
+Notes: findFlight branch | 04/14
+==================================
+* Command line arguments
+  - I/O reservations.txt files
+  
+* Check given row#
+  - Account for whitespaces and >1 integer given
+  - See Plane::addPassenger() --> loop in line 45
+
+* SelectFlight() implement running while loop
+  - Continue to prompt user for choice until valid one given?
+  - (only return to Main Menu if current Plane is full, or requested Row, Seat combo is taken)
+
+* Write back to new reservation2.txt output file
+  - Before quitting main()
+  - Needs to be same format as original reservation.txt
+
+* Look into 2-D matrix of strings...
+  - Double check logic/design for row-major ordered matrix for 'Plane::passengers'
+  
