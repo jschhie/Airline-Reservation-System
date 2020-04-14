@@ -1,3 +1,5 @@
+#include <cctype>
+#include <cstdlib>
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -25,20 +27,67 @@ int Plane::getWidth() const { return width; } // getWidth()
 
 int Plane::getRows() const { return rows; } // getRows()
 
-/*
-Plane::Plane(const Plane& rhs)
-{
-    rows = rhs.rows;
-    width = rhs.width;
-    reserved = rhs.reserved;
-    
-    for(int i = 0; i < rows*width; i++)
-        strcpy(passengers[i], rhs.passengers[i]);
-    
-    cout << "Done copying Plane object." << endl;
 
-} // Plane Copy Constructor
-*/
+int Plane::getReservations() const { return reserved; } // getReservations()
+
+
+void Plane::addPassenger(char* fullName)
+{
+
+    int yourRow = 0, yourSeat = 0;
+    char line[80];
+
+    cout << "\nX = reserved.\n";
+    cout << "Please enter the row of the seat you wish to reserved >> ";
+    cin.getline(line, 80);
+    
+    // Check requested row
+    for(int c = 0; c < strlen(line); c++)
+        if(!isdigit(line[c])) return;
+
+    yourRow = stoi(line);
+    if(yourRow < 0 || yourRow > rows)
+    {
+        cout << "There is no row #" << yourRow << " on this flight.\n";
+        cout << "TODO: Please try again.\n";
+        return;
+    }
+    
+    // Get and validate seat label
+    cout << "Please enter the seat letter you wish to reserve on row #" << yourRow << " >> ";
+    cin.getline(line, 80);
+
+    int seatChar = 0, alphaSeen = 0;
+    for(int c = 0; c < strlen(line); c++)
+    {
+        if(isalpha(line[c]))
+        {
+            if(alphaSeen == 0)
+            {
+                seatChar = c;
+                alphaSeen += 1;
+            }
+            else // Too many letters provided
+                return;
+        }
+        else if(!iswspace(line[c])) // Invalid character
+            return;
+    }
+
+    yourSeat = int(toupper(line[seatChar])) - int('A'); // Starts at index 0
+    if (yourSeat >= width) 
+    {
+        cout << "addPassenger() Error: Requested seat letter DNE on this flight.\n";
+        return;
+    }
+    
+    cout << "Requested Row: " << yourRow << " and Requested Seat:" << yourSeat << " for " << fullName << endl;
+    // TODO
+    // Check if Requested row and seat combo is an empty slot in passengers
+    // If free, assign fullName and increment reserved count by 1
+
+} // addPassenger()
+
 
 Plane::~Plane()
 {
@@ -49,17 +98,6 @@ Plane::~Plane()
     }
     delete [] passengers;
 } // ~Plane() Deconstructor
-
-/*
-int* Plane::getPlaneInfo() const
-{
-    int* result;
-    static int dimensions[2] = {rows, width};
-    result = &(dimensions[0]);
-    cout << "returning dimensions\n";
-    return result; // [rows, width] Format
-}
-*/
 
 
 istream& operator>> (istream& is, Plane& planeRef)
@@ -78,7 +116,9 @@ istream& operator>> (istream& is, Plane& planeRef)
         // Copy Seat Info
         is.getline(line, 80, ' ');
         length = strlen(line);
-        strncpy(curr_row, line, length-1); // Copy all except last character (which is the seat letter)
+
+        // Copy all except last character (which is the seat letter)
+        strncpy(curr_row, line, length-1);
         curr_row[length-1] = '\0';
         row_num = stoi(curr_row);
         curr_seat = char(line[length-1]); // Single letter
@@ -94,6 +134,7 @@ istream& operator>> (istream& is, Plane& planeRef)
     return is;
 
 } // operator<<()
+
 
 ostream& operator<< (ostream& os, const Plane& planeRef)
 {

@@ -6,15 +6,6 @@
 
 using namespace std;
 
-/*
-typedef struct
-{
-    int flightNum;
-    char origin[20];
-    char destination[20];
-    Plane *plane;
-} Flight;
-*/
 
 class Flight
 {
@@ -27,11 +18,9 @@ class Flight
 public:
 
     Flight();
-    //Flight(const Flight& rhs); 
     ~Flight();
     int getFlightNum() const;
     Plane* getPlane() const;
-    //int* getPlaneCapacity() const;
     friend ostream& operator<< (ostream& os, const Flight& flightRef);
     friend istream& operator>> (istream& is, Flight& flightRef);
 

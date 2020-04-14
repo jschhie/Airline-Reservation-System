@@ -123,29 +123,18 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
 
 void selectSeat(Plane* yourPlane, char* fullName) // FIXME yourFlight giving memory errors
 {
-/*
-    int numCols = yourPlane->getWidth();
-    int numRows = yourPlane->getRows();
-    
-    // Display Header
-    char letters[numCols + 1]; // Account for '\0' char
-    for(int c = 0; c < numCols; c++)
-        letters[c] = 'A' + c;
-    letters[numCols] = '\0';
-
-    cout << "Row Number#" << setw(8) <<  letters << endl;
-    for(int i = 0; i < numRows; i++)
-        cout << i+1 << setw(18) << *yourPlane << endl;
-        //cout << i+1 << setw(18) << "todo" << endl;
-*/
-
+    // First check if yourPlane is full
+    int capacity = yourPlane->getWidth() * yourPlane->getRows();
+    int numOccupied = yourPlane->getReservations();
+    if (capacity == numOccupied)
+    {
+        cout << "Unfortunately requested Flight is full.\n\n"; 
+        return;
+    }
+        
     // Display Header and Plane Seating Visual
     cout << *yourPlane;
-
-    cout << "\nX = reserved.\n";
-    cout << "Please enter the row of the seat you wish to reserved >> ";
-    int requested = 0;
-    cin >> requested;
-    cout << "Requested: " << requested << endl;
+    yourPlane->addPassenger(fullName);
+    return;
 
 } // selectSeat()
