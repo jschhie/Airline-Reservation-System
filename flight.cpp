@@ -13,20 +13,37 @@ Flight::Flight() : flightNum(-1)
 } // Flight() Constructor
 
 
+/*
+Flight::Flight(const Flight& rhs)
+{
+    flightNum = rhs.flightNum;
+    strcpy(origin, rhs.origin);
+    strcpy(destination, rhs.destination);
+    plane = NULL; // FIXME
+    //plane = rhs.plane; // Copy Constructor called here
+    cout << "Done copying Flight object." << endl;
+    cout << "Copy address: " << this << " vs. RHS: " << rhs << endl; 
+
+} // Copy Flight Constructor
+*/
+
 Flight::~Flight()
 {
-    cout << "Memory for Flight Number " << flightNum << " will be deallocated." << endl;
-
+    //cout << "Memory for Flight Number " << flightNum << " will be deallocated." << endl;
     if(plane) // Check before deallocating
+        //cout << "Memory Address: " << plane << endl;
         delete plane;
     else
-        cout << "Error: Plane DNE." << endl;
+        cout << "~Flight() Error: Plane DNE." << endl;
 }
 
 
 int Flight::getFlightNum() const { return flightNum; }
 
 
+Plane* Flight::getPlane() const { return plane; } 
+
+/*
 int* Flight::getPlaneCapacity() const
 {
     if(plane)
@@ -37,6 +54,7 @@ int* Flight::getPlaneCapacity() const
     // Otherwise Plane DNE for Flight
     return NULL;
 }
+*/
 
 
 ostream& operator<< (ostream& os, const Flight& flightRef) 

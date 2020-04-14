@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+
 /* Subfunctions */
 void printMenu()
 {
@@ -66,13 +68,14 @@ void showFlights(const Flight* currFlights, int numFlights)
     cout << "------------------------------------------------" << endl;
     
     for(int i = 0; i < numFlights; i++)
-        cout << currFlights[i];   
+        cout << currFlights[i];
+    cout << endl;
     return;
 
 } // showFlights()
 
 
-void selectFlight(const Flight* currFlights, int numFlights)
+void selectFlight(Flight* currFlights, int numFlights)
 {
     char yourFlight[80];
     int intFlight; // Assuming valid input with all digits    
@@ -82,27 +85,67 @@ void selectFlight(const Flight* currFlights, int numFlights)
         cin >> yourFlight;
         intFlight = stoi(yourFlight);
         
-        if(intFlight == 0)
-        {
-            cout << "Returning to Main Menu\n";
-            break;
-        }
-        else if(intFlight > 0)
-        {
-            findFlight(currFlights, numFlights, intFlight);
-            break;
-        }
-        cout << "We do not have a flight number #" << intFlight << endl;
-        cout << "Please try again." << endl;
-    } while(intFlight);
+        if(intFlight == 0) break;
+        
+        else if(intFlight > 0 && findFlight(currFlights, numFlights, intFlight)) break;
 
+        // Default: Display error message
+        cout << "We do not have a flight number #" << intFlight << endl;
+        cout << "Please try again.\n\n";
+
+    } while(intFlight);
+    
     return;
         
 } // selectFlight()
 
-void findFlight(const Flight* currFlights, int numFlights, int target)
+bool findFlight(Flight* currFlights, int numFlights, int target)
 {
-    cout << "Finding Flight#" << target << " in Airline System\n";
-    return;
-}
+    int flightNumber = 0;
+    for(int i = 0; i < numFlights; i++)
+    {
+        flightNumber = currFlights[i].getFlightNum();
+        if(flightNumber == target)
+        {
+            char fullName[80]; // Assumes 80 chars max
+            cout << "Please enter the name of the passenger >> ";
+            cin.ignore(); // Flush buffer to remove '\n' char
+            cin.getline(fullName, 80);
+            Plane* matchingPlane = currFlights[i].getPlane();
+            selectSeat(matchingPlane, fullName);
+            return true;
+        }
+    }
 
+    return false;
+} // findFlight()
+
+
+void selectSeat(Plane* yourPlane, char* fullName) // FIXME yourFlight giving memory errors
+{
+/*
+    int numCols = yourPlane->getWidth();
+    int numRows = yourPlane->getRows();
+    
+    // Display Header
+    char letters[numCols + 1]; // Account for '\0' char
+    for(int c = 0; c < numCols; c++)
+        letters[c] = 'A' + c;
+    letters[numCols] = '\0';
+
+    cout << "Row Number#" << setw(8) <<  letters << endl;
+    for(int i = 0; i < numRows; i++)
+        cout << i+1 << setw(18) << *yourPlane << endl;
+        //cout << i+1 << setw(18) << "todo" << endl;
+*/
+
+    // Display Header and Plane Seating Visual
+    cout << *yourPlane;
+
+    cout << "\nX = reserved.\n";
+    cout << "Please enter the row of the seat you wish to reserved >> ";
+    int requested = 0;
+    cin >> requested;
+    cout << "Requested: " << requested << endl;
+
+} // selectSeat()

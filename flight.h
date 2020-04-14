@@ -25,10 +25,13 @@ class Flight
     Plane* plane;
 
 public:
+
     Flight();
+    //Flight(const Flight& rhs); 
     ~Flight();
     int getFlightNum() const;
-    int* getPlaneCapacity() const;
+    Plane* getPlane() const;
+    //int* getPlaneCapacity() const;
     friend ostream& operator<< (ostream& os, const Flight& flightRef);
     friend istream& operator>> (istream& is, Flight& flightRef);
 

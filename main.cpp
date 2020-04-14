@@ -47,7 +47,8 @@ int main()
             default: // Invalid input
                 break;
         }
-        choice = getChoice(); // Get next choice
+        // Get next choice
+        choice = getChoice();
     } // Running loop
     
     delete [] flights;

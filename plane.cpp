@@ -20,6 +20,25 @@ Plane::Plane(int numRows, int numSeats, int numRsrv) :
     }
 } // Plane() Constructor
 
+int Plane::getWidth() const { return width; } // getWidth()
+
+
+int Plane::getRows() const { return rows; } // getRows()
+
+/*
+Plane::Plane(const Plane& rhs)
+{
+    rows = rhs.rows;
+    width = rhs.width;
+    reserved = rhs.reserved;
+    
+    for(int i = 0; i < rows*width; i++)
+        strcpy(passengers[i], rhs.passengers[i]);
+    
+    cout << "Done copying Plane object." << endl;
+
+} // Plane Copy Constructor
+*/
 
 Plane::~Plane()
 {
@@ -31,7 +50,7 @@ Plane::~Plane()
     delete [] passengers;
 } // ~Plane() Deconstructor
 
-
+/*
 int* Plane::getPlaneInfo() const
 {
     int* result;
@@ -40,6 +59,8 @@ int* Plane::getPlaneInfo() const
     cout << "returning dimensions\n";
     return result; // [rows, width] Format
 }
+*/
+
 
 istream& operator>> (istream& is, Plane& planeRef)
 {
@@ -72,4 +93,35 @@ istream& operator>> (istream& is, Plane& planeRef)
     
     return is;
 
-}
+} // operator<<()
+
+ostream& operator<< (ostream& os, const Plane& planeRef)
+{
+    int numRows = planeRef.getRows();
+    int numCols = planeRef.getWidth();
+
+    char letters[numCols + 1]; // Account for '\0' char
+    for(int c = 0; c < numCols; c++)
+        letters[c] = 'A' + c;
+    letters[numCols] = '\0';
+
+    cout << "Row Number#" << setw(8) <<  letters << endl;
+    
+    int offset = 0; 
+    char symbols[numCols+1]; // X: Reserved, -: Available seat
+    for(int i = 0; i < numRows; i++)
+    {
+        offset = i * numCols;
+        for(int j = 0; j < numCols; j++)
+        {
+            if(strlen(planeRef.passengers[offset+j]))
+                symbols[j] = 'X';
+            else
+                symbols[j] = '-';
+        }
+        symbols[numCols] = '\0';
+        cout << i+1 << setw(18) << symbols << endl;
+    }
+    return os;
+
+} // operator>>()

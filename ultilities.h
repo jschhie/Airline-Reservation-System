@@ -16,7 +16,8 @@ void printMenu();
 int checkChoice(const char* yourChoice);
 int getChoice();
 void showFlights(const Flight* currFlights, int numFlights);
-void selectFlight(const Flight* currFlights, int numFlights);
-void findFlight(const Flight* currFlights, int numFlights, int target);
+void selectFlight(Flight* currFlights, int numFlights);
+bool findFlight(Flight* currFlights, int numFlights, int target);
+void selectSeat(Plane* yourPlane, char* fullName);
 
 #endif /* ULTILITIES_H */

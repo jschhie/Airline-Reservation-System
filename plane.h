@@ -24,10 +24,13 @@ class Plane
 public:
 
     Plane(int numRows, int numSeats, int numRsrv);
+    //Plane(const Plane& rhs); // took out const keyword
+    int getWidth() const;
+    int getRows() const;
     ~Plane();
-    int* getPlaneInfo() const;
+    //int* getPlaneInfo() const;
     friend istream& operator>> (istream& is, Plane& planeRef); 
-
+    friend ostream& operator<< (ostream& os, const Plane& planeRef);
 }; // Plane Class
 
 #endif /* PLANE_H */
