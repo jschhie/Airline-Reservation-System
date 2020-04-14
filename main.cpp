@@ -17,10 +17,17 @@ using namespace std;
 /* Driver Program */
 int main()
 {
-    // Read first line of file
+    // Read given file
     string firstLine = "";
     ifstream fin;
     fin.open("reservations.txt");
+    if(!fin)
+    {
+        cout << "Failed to open given file.\n";
+        return 0;
+    } // Terminate program early
+
+    // Read first line of file
     getline(fin, firstLine);
 
     // Program initialization
@@ -29,7 +36,7 @@ int main()
     for(int i = 0; i < numFlights; i++)
         fin >> flights[i];
     
-    // Done reading from file
+    // Done reading from given file
     fin.close();
 
     // Get user's input as choice
@@ -50,8 +57,27 @@ int main()
         // Get next choice
         choice = getChoice();
     } // Running loop
+   
     
-    delete [] flights;
+    // Create new file for current reservations
+    
+    fstream fout;
+    fout.open("reservations2.txt", ios::out);
+    
+    if(!fout)
+        cout << "Failed to create new file.\n";     
+    else
+    {
+        cout << "Writing to new file.\n";
+        // TODO 
+        // Write metadata (numFlights)
+        // followed by each Flight's flightNumber, etc
+        // followed by each Passengers name and Seat position
+        fout.close();
+    }
+
+    // Clean up and exit
+    delete [] flights;    
     return 0;
 
 } // End of main()

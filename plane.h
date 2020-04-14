@@ -18,7 +18,7 @@ public:
     int getWidth() const;
     int getRows() const;
     int getReservations() const;
-    void addPassenger(char* fullName);
+    void addPassenger(const char* fullName);
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 
     friend ostream& operator<< (ostream& os, const Plane& planeRef);

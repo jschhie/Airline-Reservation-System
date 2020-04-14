@@ -121,11 +121,12 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
 } // findFlight()
 
 
-void selectSeat(Plane* yourPlane, char* fullName) // FIXME yourFlight giving memory errors
+void selectSeat(Plane* yourPlane, const char* fullName)
 {
-    // First check if yourPlane is full
     int capacity = yourPlane->getWidth() * yourPlane->getRows();
     int numOccupied = yourPlane->getReservations();
+
+    // First check if yourPlane is full
     if (capacity == numOccupied)
     {
         cout << "Unfortunately requested Flight is full.\n\n"; 
@@ -135,6 +136,7 @@ void selectSeat(Plane* yourPlane, char* fullName) // FIXME yourFlight giving mem
     // Display Header and Plane Seating Visual
     cout << *yourPlane;
     yourPlane->addPassenger(fullName);
+
     return;
 
 } // selectSeat()

@@ -16,31 +16,34 @@ Flight::Flight() : flightNum(-1)
 Flight::~Flight()
 {
     //cout << "Memory for Flight Number " << flightNum << " will be deallocated." << endl;
-    if(plane) // Check before deallocating
-        //cout << "Memory Address: " << plane << endl;
+    if(plane) 
         delete plane;
-    else
+    else 
         cout << "~Flight() Error: Plane DNE." << endl;
-}
+} // ~Flight() Deconstructor
 
 
-int Flight::getFlightNum() const { return flightNum; }
+int Flight::getFlightNum() const { return flightNum; } // getFlightNum()
 
 
-Plane* Flight::getPlane() const { return plane; } 
+Plane* Flight::getPlane() const { return plane; } // getPlane()
 
 
 ostream& operator<< (ostream& os, const Flight& flightRef) 
 {
+
     os << flightRef.flightNum << "\t\t";
     os << flightRef.origin << "\t\t\t\t";
     os << flightRef.destination << '\n';
+
     return os;
+
 } // operator<<()
 
 
 istream& operator>> (istream& is, Flight& flightRef)
 {
+
     int numRows, numSeats, numReserved;
     char line[80];
 

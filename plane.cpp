@@ -11,7 +11,7 @@ using namespace std;
 Plane::Plane(int numRows, int numSeats, int numRsrv) : 
     rows(numRows), width(numSeats), reserved(numRsrv)
 {
-    // Create 2-D array of strings
+    // Create 2-D array of strings: Row-major order
     passengers = new char * [numRows*numSeats];
     int offset = 0;
     for(int i = 0; i < numRows; i++)
@@ -22,6 +22,7 @@ Plane::Plane(int numRows, int numSeats, int numRsrv) :
     }
 } // Plane() Constructor
 
+
 int Plane::getWidth() const { return width; } // getWidth()
 
 
@@ -31,11 +32,10 @@ int Plane::getRows() const { return rows; } // getRows()
 int Plane::getReservations() const { return reserved; } // getReservations()
 
 
-void Plane::addPassenger(char* fullName)
+void Plane::addPassenger(const char* fullName)
 {
-
     int yourRow = 0, yourSeat = 0;
-    char line[80];
+    char line[80], seatLabel;
 
     cout << "\nX = reserved.\n";
     cout << "Please enter the row of the seat you wish to reserved >> ";
@@ -46,7 +46,7 @@ void Plane::addPassenger(char* fullName)
         if(!isdigit(line[c])) return;
 
     yourRow = stoi(line);
-    if(yourRow < 0 || yourRow > rows)
+    if(yourRow <= 0 || yourRow > rows)
     {
         cout << "There is no row #" << yourRow << " on this flight.\n";
         cout << "TODO: Please try again.\n";
@@ -74,17 +74,23 @@ void Plane::addPassenger(char* fullName)
             return;
     }
 
-    yourSeat = int(toupper(line[seatChar])) - int('A'); // Starts at index 0
-    if (yourSeat >= width) 
+    seatLabel = toupper(line[seatChar]);
+    yourSeat = int(seatLabel) - int('A'); // Starts at index 0
+    if (yourSeat >= width)
     {
         cout << "addPassenger() Error: Requested seat letter DNE on this flight.\n";
         return;
     }
-    
-    cout << "Requested Row: " << yourRow << " and Requested Seat:" << yourSeat << " for " << fullName << endl;
-    // TODO
-    // Check if Requested row and seat combo is an empty slot in passengers
-    // If free, assign fullName and increment reserved count by 1
+
+    // Check if requested row and seat combo is free
+    int offset = (yourRow-1) * width;
+    if(strlen(passengers[offset+yourSeat]))
+        cout << "Requested Row, Seat: " << yourRow << ", " << seatLabel << " is already reserved.\n";
+    else // Can add passenger to Plane
+    {
+        strcpy(passengers[offset+yourSeat], fullName);
+        reserved++;
+    }
 
 } // addPassenger()
 
