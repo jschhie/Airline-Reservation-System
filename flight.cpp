@@ -2,9 +2,11 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+
 #include "flight.h"
 
 using namespace std;
+
 
 Flight::Flight() : flightNum(-1)
 {
@@ -15,26 +17,40 @@ Flight::Flight() : flightNum(-1)
 
 Flight::~Flight()
 {
-    cout << "Memory for Flight Number " << flightNum << " will be deallocated." << endl;
-
-    if(plane) // Check before deallocating
+    if(plane) 
         delete plane;
-    else
-        cout << "Error: Plane DNE." << endl;
-}
+    else 
+        cout << "~Flight() Error: Plane DNE." << endl;
+} // ~Flight() Deconstructor
+
+
+int Flight::getFlightNum() const { return flightNum; } // getFlightNum()
+
+
+string Flight::getOrigin() const { return origin; } // getOrigin()
+
+
+string Flight::getDestination() const { return destination; } // getDestination()
+
+
+Plane* Flight::getPlane() const { return plane; } // getPlane()
 
 
 ostream& operator<< (ostream& os, const Flight& flightRef) 
 {
+
     os << flightRef.flightNum << "\t\t";
     os << flightRef.origin << "\t\t\t\t";
     os << flightRef.destination << '\n';
+
     return os;
+
 } // operator<<()
 
 
 istream& operator>> (istream& is, Flight& flightRef)
 {
+
     int numRows, numSeats, numReserved;
     char line[80];
 
@@ -43,13 +59,12 @@ istream& operator>> (istream& is, Flight& flightRef)
         // Copy over Flight Info
         flightRef.flightNum = stoi(line);
         is.getline(line, 20);
+        line[strlen(line)-1] = '\0'; // ADDED
         strcpy(flightRef.origin, line);
         is.getline(line, 20);
+        line[strlen(line)-1] = '\0'; // ADDED
         strcpy(flightRef.destination, line);
         
-        //cout << "origin: " << flightRef.origin << endl;
-        //cout << "dest: " << flightRef.destination << endl;
-
         // Copy over Plane Info
         is.getline(line, 80, ' ');
         numRows = stoi(line);

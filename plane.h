@@ -5,15 +5,6 @@
 
 using namespace std;
 
-/*
-typedef struct
-{
-    int rows;
-    int width;
-    int reserved; // Total reservations for Plane
-    char ***passengers; // 2-dimensional array
-} Plane;
-*/
 
 class Plane
 {
@@ -24,8 +15,14 @@ class Plane
 public:
 
     Plane(int numRows, int numSeats, int numRsrv);
+    int getWidth() const;
+    int getRows() const;
+    int getReservations() const;
+    void addPassenger(const char* fullName);
+    void writePlaneInfo(fstream& outFile) const;
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 
+    friend ostream& operator<< (ostream& os, const Plane& planeRef);
 
 }; // Plane Class
 

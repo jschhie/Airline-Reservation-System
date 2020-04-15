@@ -15,12 +15,25 @@ using namespace std;
 
 
 /* Driver Program */
-int main()
+int main(int argc, char** argv)
 {
-    // Read first line of file
-    string firstLine = "";
+    if(argc != 3)
+    {
+        cout << "Expected Arguments: ./airline.out <inputFileName> <outputFileName>\n";
+        return 0;
+    }
+
+    // Read given file
+    string firstLine;
     ifstream fin;
-    fin.open("reservations.txt");
+    fin.open(argv[1]);
+
+    if(!fin)
+    {
+        cout << "Failed to open " << argv[1] << endl;
+        return 0;
+    } 
+
     getline(fin, firstLine);
 
     // Program initialization
@@ -29,7 +42,7 @@ int main()
     for(int i = 0; i < numFlights; i++)
         fin >> flights[i];
     
-    // Done reading from file
+    // Done reading from given file
     fin.close();
 
     // Get user's input as choice
@@ -47,11 +60,24 @@ int main()
             default: // Invalid input
                 break;
         }
-        choice = getChoice(); // Get next choice
+        // Get next choice
+        choice = getChoice();
     } // Running loop
     
-    delete [] flights;
+    // Create new file for current reservations   
+    fstream fout;
+    fout.open(argv[2], ios::out | ios::trunc);
+    
+    if(!fout)
+        cout << "Failed to create new file.\n";     
+    else
+    {
+        writeBack(flights, numFlights, fout);
+        fout.close();
+    }
+
+    // Clean up and exit
+    delete [] flights;    
     return 0;
 
 } // End of main()
-
