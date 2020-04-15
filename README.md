@@ -8,7 +8,7 @@ For convenience, the corresponding Makefile has been provided, as well as a samp
 ## Usage
 The current implementation offers users two choices: (0) Exit the program, and (1) Add a passenger.
 
-#### Exiting the Program
+#### Choice 0. Exiting the Program
 Before exiting, program automatically generates a new file with the specified name (i.e. the last command line argument). The contents reflect the changes made (if any) to the airline reservation system during runtime. Both this 'outputFile' and 'inputFile' share the same format as follows.
 
 #### Expected Input/Output File Format
@@ -25,3 +25,7 @@ The table below summarizes and exemplifies the formatting.
 | 5 | number of rows and seats per row, followed by number of reservations (each sep. by a space)| 10 2 3 | Three Integers; plane capacity = 10 * 2 = 20 passengers |
 | 6 | First Reservation (if any) | 10B Alice Wong | Alice Wong has made reservation for Row #10, Seat B |
 | ...| ...| ...|...|
+
+#### Choice 1. Adding a new Passenger
+// TODO
+
