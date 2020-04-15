@@ -16,7 +16,7 @@ Before exiting, program automatically generates a new file with the specified na
 // TODO
 
 ## Expected Input/Output File Format
-The I/O file format was designed by Sean Davis. The very first line states the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's dimensions and initial number of reservations. If the flight has any reservations, then the next set of lines lists each booked seat. 
+The I/O file format was designed by Sean Davis. The very first line states the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has any reservations, then the next set of lines lists each booked seat. 
 
 The table below summarizes and exemplifies the formatting.
 
