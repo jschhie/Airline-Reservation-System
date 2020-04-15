@@ -3,7 +3,7 @@ objects     := main.o flight.o plane.o ultilities.o
 
 CC          := g++
 CFLAGS      := -Wall
-CFLAGS		+= -g
+CFLAGS.     += -g
 
 # Enable verbose output if debugging
 ifneq ($(V), 1)
