@@ -21,6 +21,8 @@ public:
     Flight();
     ~Flight();
     int getFlightNum() const;
+    string getOrigin() const;
+    string getDestination() const;
     Plane* getPlane() const;
     friend ostream& operator<< (ostream& os, const Flight& flightRef);
     friend istream& operator>> (istream& is, Flight& flightRef);

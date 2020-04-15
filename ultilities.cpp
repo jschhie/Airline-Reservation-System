@@ -147,3 +147,20 @@ void selectSeat(Plane* yourPlane, const char* fullName)
     yourPlane->addPassenger(fullName);
     return;
 } // selectSeat()
+
+
+void writeBack(const Flight* currFlights, int totalFlights, fstream& outFile)
+{
+    outFile << totalFlights << endl;
+    for(int i = 0; i < totalFlights; i++)
+    {
+        // Write flightNumber
+        outFile << currFlights[i].getFlightNum() << endl;
+        // Write origin
+        outFile << currFlights[i].getOrigin() << endl;
+        // Write destination
+        outFile << currFlights[i].getDestination() << endl;
+        // Write plane dimensions & passenger seating info
+        currFlights[i].getPlane()->writePlaneInfo(outFile);
+    }
+} // writeBack()

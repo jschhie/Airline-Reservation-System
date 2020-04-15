@@ -15,19 +15,25 @@ using namespace std;
 
 
 /* Driver Program */
-int main()
+int main(int argc, char** argv)
 {
+    if(argc != 3)
+    {
+        cout << "Expected Arguments: ./airline.out <inputFileName> <outputFileName>\n";
+        return 0;
+    }
+
     // Read given file
-    string firstLine = "";
+    string firstLine;
     ifstream fin;
-    fin.open("reservations.txt");
+    fin.open(argv[1]);
+
     if(!fin)
     {
-        cout << "Failed to open given file.\n";
+        cout << "Failed to open " << argv[1] << endl;
         return 0;
-    } // Terminate program early
+    } 
 
-    // Read first line of file
     getline(fin, firstLine);
 
     // Program initialization
@@ -60,17 +66,13 @@ int main()
     
     // Create new file for current reservations   
     fstream fout;
-    fout.open("reservations2.txt", ios::out);
+    fout.open(argv[2], ios::out | ios::trunc);
     
     if(!fout)
         cout << "Failed to create new file.\n";     
     else
     {
-        cout << "Writing to new file.\n";
-        // TODO 
-        // Write metadata (numFlights)
-        // followed by each Flight's flightNumber, etc
-        // followed by each Passengers name and Seat position
+        writeBack(flights, numFlights, fout);
         fout.close();
     }
 

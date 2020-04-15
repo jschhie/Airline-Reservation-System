@@ -17,7 +17,6 @@ Flight::Flight() : flightNum(-1)
 
 Flight::~Flight()
 {
-    //cout << "Memory for Flight Number " << flightNum << " will be deallocated." << endl;
     if(plane) 
         delete plane;
     else 
@@ -26,6 +25,12 @@ Flight::~Flight()
 
 
 int Flight::getFlightNum() const { return flightNum; } // getFlightNum()
+
+
+string Flight::getOrigin() const { return origin; } // getOrigin()
+
+
+string Flight::getDestination() const { return destination; } // getDestination()
 
 
 Plane* Flight::getPlane() const { return plane; } // getPlane()
@@ -54,8 +59,10 @@ istream& operator>> (istream& is, Flight& flightRef)
         // Copy over Flight Info
         flightRef.flightNum = stoi(line);
         is.getline(line, 20);
+        line[strlen(line)-1] = '\0'; // ADDED
         strcpy(flightRef.origin, line);
         is.getline(line, 20);
+        line[strlen(line)-1] = '\0'; // ADDED
         strcpy(flightRef.destination, line);
         
         // Copy over Plane Info

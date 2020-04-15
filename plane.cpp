@@ -55,7 +55,7 @@ void Plane::addPassenger(const char* fullName)
         {
             cout << "There is no row #" << line << " on this flight.\n";
             cout << "Please try again.\n\n";
-        } 
+       } 
     } while(1);
     
     do // Get and validate seat label
@@ -102,9 +102,32 @@ void Plane::addPassenger(const char* fullName)
     {
         strcpy(passengers[offset+yourSeat], fullName);
         reserved++;
-    } 
+    }
 
 } // addPassenger()
+
+
+void Plane::writePlaneInfo(fstream& outFile) const
+{
+    outFile << rows << ' ' << width << ' ' << reserved << endl;
+
+    int offset = 0;
+    char* temp;
+    for(int i = 0; i < rows; i++)
+    {
+        offset = i * width;
+        for(int j = 0; j < width; j++)
+        {
+            temp = passengers[offset+j];
+            if(temp && strlen(temp))
+                // Non-empty seat if name > 0 chars
+                // Dynamically allocated space beforehand: default with empty strings
+                // Cast from int to char to ASCII rep.
+                outFile << i+1 << static_cast<char>(j+'A') << ' ' << temp << endl;
+        }
+    }
+
+} // writePlaneInfo()
 
 
 Plane::~Plane()
@@ -140,6 +163,7 @@ istream& operator>> (istream& is, Plane& planeRef)
 
         // Get and store full Name of Passengers
         is.getline(line, 80);
+        line[strlen(line)-1] = '\0';
         strcpy(fullName, line);
         int offset = (row_num - 1) * planeRef.width;
         strcpy(planeRef.passengers[offset + col_num], fullName);
@@ -147,7 +171,7 @@ istream& operator>> (istream& is, Plane& planeRef)
     
     return is;
 
-} // operator<<()
+} // operator>>()
 
 
 ostream& operator<< (ostream& os, const Plane& planeRef)
@@ -181,4 +205,4 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
    
     return os;
 
-} // operator>>()
+} // operator<<()
