@@ -21,7 +21,7 @@ The I/O file format was designed by Sean Davis. The very first line states the t
 The table below summarizes and exemplifies the formatting.
 
 | Line # | Value(s) | Example | Extra Notes |
-| ------ | -------- |  ---------| --------|
+| :------: | :--------: | :---------: | :--------:|
 | 1 | Number of flights in total |  4| Single Integer |
 | 2 | Flight number | 123 | Single Integer |
 | 3 | Origin | San Diego | String |
