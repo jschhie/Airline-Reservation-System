@@ -1,5 +1,5 @@
 targets     := airline.out
-objects     := main.o flight.o plane.o ultilities.o
+objects     := main.o flight.o plane.o utilities.o
 
 CC          := g++
 CFLAGS      := -Wall
