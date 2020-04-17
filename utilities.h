@@ -1,5 +1,5 @@
-#ifndef ULTILITIES_H
-#define ULTILITIES_H
+#ifndef UTILITIES_H
+#define UTILITIES_H
 
 #include <cctype>
 #include <cstdlib>
@@ -28,4 +28,4 @@ void selectSeat(Plane* yourPlane, const char* fullName);
 
 void writeBack(const Flight* currFlights, int totalFlights, fstream& outFile);
 
-#endif /* ULTILITIES_H */
+#endif /* UTILITIES_H */
