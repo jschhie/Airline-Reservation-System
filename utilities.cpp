@@ -91,11 +91,11 @@ void showFlights(const Flight* currFlights, int numFlights)
 void selectFlight(Flight* currFlights, int numFlights)
 {
     char yourFlight[80];
-    int intFlight; // Assuming valid input with all digits    
+    int intFlight; // Assuming valid input with all digits   
     do 
     {
         cout << "Flight Number (Enter 0 to return to Main Menu) >> ";
-        cin >> yourFlight;
+        cin.getline(yourFlight, 80); // To remove '\n' from buffer
         intFlight = stoi(yourFlight);
         
         if(intFlight == 0) break;
