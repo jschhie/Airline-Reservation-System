@@ -24,10 +24,10 @@ The current implementation offers users two choices: (0) Exiting the program, an
 Before exiting, program automatically generates a new file with the specified name (i.e. the last command line argument). The contents reflect the changes made (if any) to the airline reservation system during runtime. Both this ```outputFile``` and ```inputFile``` share the same format as detailed [last section](https://github.com/jschhie/airline-reserv/#input--output-file-formatting).
 
 #### Choice 1. Adding a New Passenger
-// TODO
+Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied). During these series of interaction, the user can also return back to the Main Menu by entering ```0```.
 
 ## Input & Output File Formatting
-The I/O file format was designed by Sean Davis. The very first line states the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has any reservations, then the next set of lines lists each booked seat. 
+The very first line should state the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has any reservations, then the next set of lines lists each booked seat. 
 
 The table below summarizes and exemplifies the formatting.
 
