@@ -6,7 +6,7 @@
 #include <string>
 
 #include "plane.h"
-#include "ultilities.h"
+#include "utilities.h"
 
 using namespace std;
 
