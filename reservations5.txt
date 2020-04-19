@@ -2,7 +2,7 @@
 230
 Reno
 Los Angeles
-8 2 10
+8 2 11
 1A Pele Chan
 2A Ryan Chock
 2B Danny Tran
@@ -10,6 +10,7 @@ Los Angeles
 4B Sze-Kin Barahona
 5A Harnit Prado
 5B Tri Chiong
+6A Lynn
 7B Daniel Mak
 8A Gary Lam
 8B David Shah
