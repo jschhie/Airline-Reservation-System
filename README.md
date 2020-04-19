@@ -18,7 +18,7 @@ For convenience, the corresponding Makefile has been provided, as well as a samp
 You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out inputFile.txt outputFile.txt```.
 
 ## Usage
-The current implementation offers users two choices: (0) Exit the program, and (1) Add a passenger.
+The current implementation offers users two choices: (0) Exiting the program, and (1) Adding a passenger.
 
 #### Choice 0. Exiting the Program
 Before exiting, program automatically generates a new file with the specified name (i.e. the last command line argument). The contents reflect the changes made (if any) to the airline reservation system during runtime. Both this ```outputFile``` and ```inputFile``` share the same format as detailed [last section](https://github.com/jschhie/airline-reserv/#input--output-file-formatting).
