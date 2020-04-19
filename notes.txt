@@ -1,5 +1,0 @@
-# Supplying Input Script
-cat inputScript.txt | ./airline.out inputFile.txt outputFile.txt
-
-# Redirecting output
-./airline.out inputFile.txt outputFile.txt > sampleInteraction.txt
