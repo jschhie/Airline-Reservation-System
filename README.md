@@ -4,7 +4,10 @@
 Airline Reservation System Project (Spring 2020; C++)
 
 ## How to Run the Program
-For convenience, the corresponding Makefile has been provided, as well as a sample reservations.txt file. Expected command line arguments: './airline.out inputFile outputFile'.
+For convenience, the corresponding Makefile has been provided, as well as a sample reservations.txt file. Expected command line arguments: ```./airline.out inputFile outputFile```.
+
+#### Supplying an Input Script
+You can supply an optional script containing your choices/input with the following command: ```cat inputScript.txt | ./airline.out inputFile.txt outputFile.txt```.
 
 ## Usage
 The current implementation offers users two choices: (0) Exit the program, and (1) Add a passenger.
