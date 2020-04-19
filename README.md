@@ -26,7 +26,7 @@ Before exiting, program automatically generates a new file with the specified na
 #### Choice 1. Adding a New Passenger
 Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied, or respective plane capacity has not been reached yet). 
 
-During these series of interaction, the user can also return back to the Main Menu by entering ```0```.
+During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
 
 ## Input & Output File Formatting
 The very first line should state the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has any reservations, then the next set of lines lists each booked seat. 
