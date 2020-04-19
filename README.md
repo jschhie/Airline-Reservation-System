@@ -7,7 +7,7 @@ Airline Reservation System Project (Spring 2020; C++)
 For convenience, the corresponding Makefile has been provided, as well as a sample reservations.txt file. Expected command line arguments: ```./airline.out inputFile outputFile```.
 
 #### Supplying an Input Script
-You can supply an optional script containing your choices/input with the following command: ```cat inputScript.txt | ./airline.out inputFile.txt outputFile.txt```.
+You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out inputFile.txt outputFile.txt```.
 
 ## Usage
 The current implementation offers users two choices: (0) Exit the program, and (1) Add a passenger.
@@ -25,10 +25,10 @@ The table below summarizes and exemplifies the formatting.
 
 | Line # | Value(s) | Example | Extra Notes |
 | :------: | :--------: | :----------- | :--------:|
-| 1 | Number of flights in total |  4| Single Integer |
-| 2 | Flight number | 123 | Single Integer |
-| 3 | Origin | San Diego | String |
-| 4 | Destination | Los Angeles | String |
-| 5 | number of rows and seats per row, followed by number of reservations (each sep. by a space)| 10 2 3 | Three Integers (here, plane capacity = 10 * 2 = 20 passengers) |
-| 6 | First Reservation (if any) | 10B Alice Wong | Alice Wong has made a reservation for Row #10, Seat B (for a particular flight) |
+| 1 | Number of flights in total |  ```4```| Single Integer |
+| 2 | Flight number | ```123``` | Single Integer |
+| 3 | Origin | ```San Diego``` | String |
+| 4 | Destination | ```Los Angeles``` | String |
+| 5 | number of rows and seats per row, followed by number of reservations (each sep. by a space)| ```10 2 3``` | Three Integers (here, plane capacity = 10 * 2 = 20 passengers) |
+| 6 | First Reservation (if any) | ```10B Alice Wong``` | Alice Wong has made a reservation for Row #10, Seat B (for a particular flight) |
 | ...| ...| ...|...|
