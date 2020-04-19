@@ -39,9 +39,10 @@ Plane* Flight::getPlane() const { return plane; } // getPlane()
 ostream& operator<< (ostream& os, const Flight& flightRef) 
 {
 
-    os << flightRef.flightNum << "\t\t";
-    os << flightRef.origin << "\t\t\t\t";
-    os << flightRef.destination << '\n';
+    os << flightRef.getFlightNum() << setw(20); 
+    os << flightRef.getOrigin() << setw(20);
+    os << flightRef.getDestination() << '\n'; 
+    // Indirect access
 
     return os;
 
@@ -59,10 +60,10 @@ istream& operator>> (istream& is, Flight& flightRef)
         // Copy over Flight Info
         flightRef.flightNum = stoi(line);
         is.getline(line, 20);
-        line[strlen(line)-1] = '\0'; // ADDED
+        line[strlen(line)-1] = '\0'; 
         strcpy(flightRef.origin, line);
         is.getline(line, 20);
-        line[strlen(line)-1] = '\0'; // ADDED
+        line[strlen(line)-1] = '\0';
         strcpy(flightRef.destination, line);
         
         // Copy over Plane Info
