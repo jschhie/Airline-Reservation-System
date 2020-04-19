@@ -13,7 +13,7 @@ You can supply an optional script containing your choices/input with the followi
 The current implementation offers users two choices: (0) Exit the program, and (1) Add a passenger.
 
 #### Choice 0. Exiting the Program
-Before exiting, program automatically generates a new file with the specified name (i.e. the last command line argument). The contents reflect the changes made (if any) to the airline reservation system during runtime. Both this 'outputFile' and 'inputFile' share the same format as detailed last section.
+Before exiting, program automatically generates a new file with the specified name (i.e. the last command line argument). The contents reflect the changes made (if any) to the airline reservation system during runtime. Both this ```outputFile``` and ```inputFile``` share the same format as detailed last section.
 
 #### Choice 1. Adding a New Passenger
 // TODO
