@@ -39,6 +39,6 @@ The table below summarizes and exemplifies the formatting.
 | 2 | Flight number | ```123``` | Single Integer |
 | 3 | Origin | ```San Diego``` | String |
 | 4 | Destination | ```Los Angeles``` | String |
-| 5 | number of rows and seats per row, followed by number of reservations (each sep. by a space)| ```10 2 3``` | Three Integers (here, plane capacity = 10 * 2 = 20 passengers) |
+| 5 | number of rows and seats per row, followed by number of reservations (each sep. by a space)| ```10 2 3``` | Three Integers (in this example, the plane capacity is 10 * 2 = 20 passengers, and there are currently 3 reservations) |
 | 6 | First Reservation (if any) | ```10B Alice Wong``` | Alice Wong has made a reservation for Row #10, Seat B (for a particular flight) |
 | ...| ...| ...|...|
