@@ -29,7 +29,7 @@ Upon request, the program will display all flights, where each one is identified
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
 
 ## Input & Output File Formatting
-The very first line should state the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has any reservations, then the next set of lines lists each booked seat. 
+The very first line should state the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has *k* reservations, then the immediate *k* lines will list each booked seat. 
 
 The table below summarizes and exemplifies the formatting.
 
