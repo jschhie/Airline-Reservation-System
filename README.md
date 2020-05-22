@@ -11,7 +11,8 @@ Airline Reservation System Project (Spring 2020; C++)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
 * [I/O File Formatting](https://github.com/jschhie/airline-reserv/#input--output-file-formatting)
 
-## How to Run the Program
+## How to Run the Program 
+## (NOTES: Current README refers to master branch. BinaryFiles branch work in progress)
 For convenience, the corresponding Makefile has been provided, as well as a sample reservations.txt file. Expected command line arguments: ```./airline.out inputFile outputFile```.
 
 #### Supplying an Input Script
