@@ -18,7 +18,6 @@ int checkChoice(const char* yourChoice);
 
 int getChoice();
 
-
 void showFlights(const Flight* currFlights, int numFlights);
 
 void selectFlight(Flight* currFlights, int numFlights);
