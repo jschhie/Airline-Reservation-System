@@ -10,7 +10,10 @@ class Passenger
 public:
     
     Passenger();
-    ~Passenger();
+    int getFlightNum() const;
+    int getSeatRow() const;
+    int getSeatLabel() const;
+    // char* getName() const;
 
 }; // Passenger Class
 

@@ -1,7 +1,10 @@
 #include "passenger.h"
 
-Passenger::Passenger(): flightNum(-1) {} // Passenger() Constructor
+Passenger::Passenger(): flightNum(-1 /* -1: Passenger DNE */) {} // Passenger() Constructor
 
-Passenger::~Passenger()
-{
-} // ~Passenger() Deconstructor
+int Passenger::getFlightNum() const { return flightNum; } // getFlightNum()
+
+int Passenger::getSeatRow() const { return seatRow; } // getSeatRow()
+
+int Passenger::getSeatLabel() const { return (seatLabel - 'A'); } // getSeatLabel()
+

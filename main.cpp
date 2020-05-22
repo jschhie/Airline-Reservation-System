@@ -8,6 +8,7 @@
 #include <string>
 
 #include "flight.h"
+#include "passenger.h"
 #include "plane.h"
 #include "utilities.h"
 
@@ -40,7 +41,7 @@ int main(int argc, char** argv)
     int numFlights = stoi(firstLine);
     Flight* flights = new Flight[numFlights];
     for(int i = 0; i < numFlights; i++)
-        fin >> flights[i];
+        fin >> flights[i]; 
     
     // Done reading from given file
     fin.close();
@@ -54,8 +55,9 @@ int main(int argc, char** argv)
             case 0: 
                 break;
             case 1: 
-                showFlights(flights, numFlights);
-                selectFlight(flights, numFlights);
+                //showFlights(flights, numFlights);
+                cout << "run showflights and selectFlight()" << endl;
+                //selectFlight(flights, numFlights);
                 break;
             default: // Invalid input
                 break;
@@ -72,7 +74,7 @@ int main(int argc, char** argv)
         cout << "Failed to create new file.\n";     
     else
     {
-        writeBack(flights, numFlights, fout);
+        //writeBack(flights, numFlights, fout);
         fout.close();
     }
 

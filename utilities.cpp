@@ -65,7 +65,7 @@ int getChoice()
 
 } // getChoice()
 
-
+/*
 void showFlights(const Flight* currFlights, int numFlights)
 {
 
@@ -171,3 +171,4 @@ void writeBack(const Flight* currFlights, int totalFlights, fstream& outFile)
         currFlights[i].getPlane()->writePlaneInfo(outFile);
     }
 } // writeBack()
+*/

@@ -1,16 +1,18 @@
 #include <cctype>
+#include <cstdio>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <fstream>
 #include <string>
 
+#include "passenger.h"
 #include "plane.h"
 #include "utilities.h"
 
 using namespace std;
 
-
+/*
 Plane::Plane(int numRows, int numSeats, int numRsrv) : 
     rows(numRows), width(numSeats), reserved(numRsrv)
 {
@@ -24,6 +26,20 @@ Plane::Plane(int numRows, int numSeats, int numRsrv) :
             passengers[offset+j] = new char[80];
     }
 } // Plane() Constructor
+*/
+
+Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
+    rows(numRows), width(numSeats), reserved(numRsrv), flightNum(flightNumber)
+{
+    // Create & initialize 2-D array of offsets
+    int capacity = numRows * numSeats;
+    int newArray [capacity];
+
+    passengers = newArray;
+    for (int i = 0; i < capacity; i++)
+        passengers[i] = -1;
+
+} // Plane() Constructor 2.0
 
 
 int Plane::getWidth() const { return width; } // getWidth()
@@ -35,6 +51,9 @@ int Plane::getRows() const { return rows; } // getRows()
 int Plane::getReservations() const { return reserved; } // getReservations()
 
 
+int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
+
+/*
 void Plane::addPassenger(const char* fullName)
 {
     int yourRow = -1, yourSeat = 0, index = -1;
@@ -105,8 +124,9 @@ void Plane::addPassenger(const char* fullName)
     }
 
 } // addPassenger()
+*/
 
-
+/*
 void Plane::writePlaneInfo(fstream& outFile) const
 {
     outFile << rows << ' ' << width << ' ' << reserved << endl;
@@ -128,16 +148,68 @@ void Plane::writePlaneInfo(fstream& outFile) const
     }
 
 } // writePlaneInfo()
+*/
 
-
+/*
 Plane::~Plane()
 {
     for (int count = 0; count < rows*width; count++)
         delete [] passengers[count];
     delete [] passengers;
 } // ~Plane() Deconstructor
+*/
 
 
+Plane::~Plane()
+{
+    cout << "Deleting Plane" << endl;
+} // ~Plane() Deconstructor 2.0
+
+
+istream& operator>> (istream& is, Plane& planeRef)
+{
+
+    ifstream inFile("refs/passengers.dat", ios::binary);
+
+    if (inFile.is_open())
+    {
+        // Init vals
+        long offset = 0, fileSize = 0;
+        int row, col, idx;
+
+        // Read each Passenger object into buffer
+        Passenger passenger;
+
+        // Get fileSize
+        inFile.seekg(0, inFile.end);
+        fileSize = inFile.tellg();
+        inFile.seekg(0, inFile.beg);
+
+        // While looping, need to compare with flightNum
+        int currFlightNum = planeRef.getFlightNum();
+        while (offset < fileSize)
+        {
+            inFile.read((char*) &passenger, sizeof(Passenger));
+            if (passenger.getFlightNum() == currFlightNum)
+            {
+                row = passenger.getSeatRow() - 1;
+                col = passenger.getSeatLabel();
+                idx = row * planeRef.getWidth() + col;
+                planeRef.passengers[idx] = offset;
+                planeRef.reserved += 1;
+            }
+            // Get current position of offset
+            offset = inFile.tellg();
+        }
+        inFile.close();
+    } else
+        perror("Cannot open binary file.");
+    
+    return is;
+
+} // operator>>() 2.0
+
+/*
 istream& operator>> (istream& is, Plane& planeRef)
 {
 
@@ -172,8 +244,9 @@ istream& operator>> (istream& is, Plane& planeRef)
     return is;
 
 } // operator>>()
+*/
 
-
+/*
 ostream& operator<< (ostream& os, const Plane& planeRef)
 {
     int numRows = planeRef.getRows();
@@ -206,3 +279,4 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
     return os;
 
 } // operator<<()
+*/
