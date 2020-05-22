@@ -20,7 +20,7 @@ public:
     int getWidth() const;
     int getRows() const;
     int getReservations() const;
-//TODO:    void addPassenger(const char* fullName);
+    void addPassenger(const char* fullName);
 //    void writePlaneInfo(fstream& outFile) const;
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 

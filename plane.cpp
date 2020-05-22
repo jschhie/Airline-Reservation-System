@@ -37,7 +37,7 @@ int Plane::getReservations() const { return reserved; } // getReservations()
 
 int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
 
-/*
+
 void Plane::addPassenger(const char* fullName)
 {
     int yourRow = -1, yourSeat = 0, index = -1;
@@ -99,16 +99,31 @@ void Plane::addPassenger(const char* fullName)
 
     // Check if requested row and seat combo is free
     int offset = (yourRow-1) * width;
-    if(strlen(passengers[offset+yourSeat]))
+    //if(strlen(passengers[offset+yourSeat]))
+    if (passengers[offset + yourSeat] != -1)
         cout << "Requested Row, Seat: " << yourRow << ", " << seatLabel << " is already reserved.\n";
     else // Can add passenger to Plane
     {
-        strcpy(passengers[offset+yourSeat], fullName);
+        //strcpy(passengers[offset+yourSeat], fullName);
+
+        // TODO: WORK IN PROGRESS
+        
+        /*
+        fstream fout open("refs/passengers.dat", ios::out | ios::app | ios::binary);
+        int pos = fout.tellg(); 
+        passengers[offset + yourSeat] = pos;
+        
+        // Update binary outfile
+        short flightNum = getFlightNumber(); // and passenger fullName, yourSeat, seatLabel, etc
+        fout.write((char*) &____, sizeof(____));
+        
         reserved++;
+        */
+
     }
 
-} // addPassenger()
-*/
+} // addPassenger() 2.0
+
 
 /*
 void Plane::writePlaneInfo(fstream& outFile) const
