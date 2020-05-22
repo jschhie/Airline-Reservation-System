@@ -13,7 +13,7 @@ public:
     int getFlightNum() const;
     int getSeatRow() const;
     int getSeatLabel() const;
-    // char* getName() const;
+    // TODO: char* getName() const;
 
 }; // Passenger Class
 

@@ -12,21 +12,6 @@
 
 using namespace std;
 
-/*
-Plane::Plane(int numRows, int numSeats, int numRsrv) : 
-    rows(numRows), width(numSeats), reserved(numRsrv)
-{
-    // Create 2-D array of strings: Row-major order
-    passengers = new char * [numRows*numSeats];
-    int offset = 0;
-    for(int i = 0; i < numRows; i++)
-    {
-        offset = i * width;
-        for(int j = 0; j < width; j++)
-            passengers[offset+j] = new char[80];
-    }
-} // Plane() Constructor
-*/
 
 Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
     rows(numRows), width(numSeats), reserved(numRsrv), flightNum(flightNumber)
@@ -150,15 +135,6 @@ void Plane::writePlaneInfo(fstream& outFile) const
 } // writePlaneInfo()
 */
 
-/*
-Plane::~Plane()
-{
-    for (int count = 0; count < rows*width; count++)
-        delete [] passengers[count];
-    delete [] passengers;
-} // ~Plane() Deconstructor
-*/
-
 
 Plane::~Plane()
 {
@@ -209,42 +185,47 @@ istream& operator>> (istream& is, Plane& planeRef)
 
 } // operator>>() 2.0
 
-/*
-istream& operator>> (istream& is, Plane& planeRef)
+
+ostream& operator<< (ostream& os, const Plane& planeRef)
 {
 
-    char line[80];
-    char fullName[80];
-    char curr_row[20]; // Assumes max row is 20
+    int numRows = planeRef.getRows();
+    int numCols = planeRef.getWidth();
+
+    char letters[numCols + 1]; // Account for '\0' char
+    for (int c = 0; c < numCols; c++)
+        letters[c] = 'A' + c;
+    letters[numCols] = '\0';
+
+    char rowHeader[] = "\nRow Number#";
+    cout << rowHeader << setw(8) <<  letters << endl << endl;
     
-    char curr_seat;
-    int length, row_num, col_num;
+    int currRow = 1; 
     
-    for(int i = 0; i < planeRef.reserved; i++)
+    // Let X: Reserved, _: Available seat
+    char symbols[(numRows * numCols) + 1];
+
+    for (int i = 0; i < numRows * numCols; i++)
     {
-        // Copy Seat Info
-        is.getline(line, 80, ' ');
-        length = strlen(line);
+        if (planeRef.passengers[i] != -1)
+            symbols[i] = 'X';
+        else
+            symbols[i] = '_';
 
-        // Copy all except last character (which is the seat letter)
-        strncpy(curr_row, line, length-1);
-        curr_row[length-1] = '\0';
-        row_num = stoi(curr_row);
-        curr_seat = char(line[length-1]); // Single letter
-        col_num = int(curr_seat) - int('A');
+        cout << "OFFSET: " << planeRef.passengers[i] << endl;
 
-        // Get and store full Name of Passengers
-        is.getline(line, 80);
-        line[strlen(line)-1] = '\0';
-        strcpy(fullName, line);
-        int offset = (row_num - 1) * planeRef.width;
-        strcpy(planeRef.passengers[offset + col_num], fullName);
+        // Print each row 
+        if ((i + 1) % numCols == 0)
+        {
+            symbols[numCols] = '\0';
+            cout << currRow++ << setw(18) << symbols << endl;
+        }
     }
-    
-    return is;
 
-} // operator>>()
-*/
+    return os;
+
+} // operator<<() 2.0
+
 
 /*
 ostream& operator<< (ostream& os, const Plane& planeRef)
@@ -253,7 +234,7 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
     int numCols = planeRef.getWidth();
 
     char letters[numCols + 1]; // Account for '\0' char
-    for(int c = 0; c < numCols; c++)
+    for (int c = 0; c < numCols; c++)
         letters[c] = 'A' + c;
     letters[numCols] = '\0';
 
@@ -262,12 +243,12 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
     
     int offset = 0; 
     char symbols[numCols+1]; // Let X: Reserved, _: Available seat
-    for(int i = 0; i < numRows; i++)
+    for (int i = 0; i < numRows; i++)
     {
         offset = i * numCols;
-        for(int j = 0; j < numCols; j++)
+        for (int j = 0; j < numCols; j++)
         {
-            if(strlen(planeRef.passengers[offset+j]))
+            if (strlen(planeRef.passengers[offset+j]))
                 symbols[j] = 'X';
             else
                 symbols[j] = '_';

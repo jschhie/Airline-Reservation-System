@@ -55,9 +55,8 @@ int main(int argc, char** argv)
             case 0: 
                 break;
             case 1: 
-                //showFlights(flights, numFlights);
-                cout << "run showflights and selectFlight()" << endl;
-                //selectFlight(flights, numFlights);
+                showFlights(flights, numFlights);
+                selectFlight(flights, numFlights);
                 break;
             default: // Invalid input
                 break;
@@ -74,7 +73,7 @@ int main(int argc, char** argv)
         cout << "Failed to create new file.\n";     
     else
     {
-        //writeBack(flights, numFlights, fout);
+        //TODO:writeBack(flights, numFlights, fout);
         fout.close();
     }
 
