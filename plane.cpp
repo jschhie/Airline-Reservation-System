@@ -18,9 +18,8 @@ Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
 {
     // Create & initialize 2-D array of offsets
     int capacity = numRows * numSeats;
-    int newArray [capacity];
-
-    passengers = newArray;
+    //int newArray [capacity];
+    passengers = new int [capacity];
     for (int i = 0; i < capacity; i++)
         passengers[i] = -1;
 
@@ -139,6 +138,10 @@ void Plane::writePlaneInfo(fstream& outFile) const
 Plane::~Plane()
 {
     cout << "Deleting Plane" << endl;
+    if (passengers)
+        delete [] passengers;
+    else
+        cout << "Plane::passengers DNE" << endl;
 } // ~Plane() Deconstructor 2.0
 
 
@@ -200,55 +203,17 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
     char rowHeader[] = "\nRow Number#";
     cout << rowHeader << setw(8) <<  letters << endl << endl;
     
-    int currRow = 1; 
+    int offset = 0; 
     
     // Let X: Reserved, _: Available seat
-    char symbols[(numRows * numCols) + 1];
+    char symbols[numCols + 1];
 
-    for (int i = 0; i < numRows * numCols; i++)
-    {
-        if (planeRef.passengers[i] != -1)
-            symbols[i] = 'X';
-        else
-            symbols[i] = '_';
-
-        cout << "OFFSET: " << planeRef.passengers[i] << endl;
-
-        // Print each row 
-        if ((i + 1) % numCols == 0)
-        {
-            symbols[numCols] = '\0';
-            cout << currRow++ << setw(18) << symbols << endl;
-        }
-    }
-
-    return os;
-
-} // operator<<() 2.0
-
-
-/*
-ostream& operator<< (ostream& os, const Plane& planeRef)
-{
-    int numRows = planeRef.getRows();
-    int numCols = planeRef.getWidth();
-
-    char letters[numCols + 1]; // Account for '\0' char
-    for (int c = 0; c < numCols; c++)
-        letters[c] = 'A' + c;
-    letters[numCols] = '\0';
-
-    char rowHeader[] = "\nRow Number#";
-    cout << rowHeader << setw(8) <<  letters << endl << endl;
-    
-    int offset = 0; 
-    char symbols[numCols+1]; // Let X: Reserved, _: Available seat
     for (int i = 0; i < numRows; i++)
     {
         offset = i * numCols;
         for (int j = 0; j < numCols; j++)
         {
-            if (strlen(planeRef.passengers[offset+j]))
+            if (planeRef.passengers[offset + j] != -1)
                 symbols[j] = 'X';
             else
                 symbols[j] = '_';
@@ -256,8 +221,7 @@ ostream& operator<< (ostream& os, const Plane& planeRef)
         symbols[numCols] = '\0';
         cout << i+1 << setw(18) << symbols << endl;
     }
-   
+
     return os;
 
-} // operator<<()
-*/
+} // operator<<() 2.0
