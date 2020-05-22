@@ -15,32 +15,32 @@ void printMenu()
 int checkChoice(const char* yourChoice)
 {
 
-    int length = strlen(yourChoice), index = -1;
+    int length = strlen(yourChoice), idx = -1;
     if (length) 
     {
         for (int i = 0; i < length; i++)
         {
             if (isdigit(yourChoice[i]))
             {
-                if(index == -1) index = i;
+                if(idx == -1) idx = i;
                 else
                 {
-                    index = -1;
+                    idx = -1;
                     break;
                 } // Reset flag (index), digit already seen
             }
             else if (!iswspace(yourChoice[i]))
             {
                 cout << "Not an available choice.\n";
-                index = -1;
+                idx = -1;
                 break; 
             } // Reset flag, raise error
         } // Check each character and ignore whitespaces
     } // Note: Available options are single digits (ie. values 0 or 1)
     
-    if (index == -1) return -1;
+    if (idx == -1) return -1;
     // Otherwise, convert from char to integer value
-    return (atoi(&yourChoice[index]));
+    return (atoi(&yourChoice[idx]));
 
 } // checkChoice()
 
