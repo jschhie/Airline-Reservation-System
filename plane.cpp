@@ -36,6 +36,7 @@ int Plane::getReservations() const { return reserved; } // getReservations()
 
 
 int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
+// NOTE: maybe remove this and just pass flightNumber to Plane addPassenger() method
 
 
 void Plane::addPassenger(const char* fullName)
@@ -114,7 +115,7 @@ void Plane::addPassenger(const char* fullName)
         passengers[offset + yourSeat] = pos;
         
         // Update binary outfile
-        short flightNum = getFlightNumber();
+        short flightNum = getFlightNum(); maybe no need if pass it to method
         Passenger passenger = new Passenger(flightNum, yourRow, seatLabel, fullName);
         fout.write((char*) &passenger, sizeof(Passenger));
         
