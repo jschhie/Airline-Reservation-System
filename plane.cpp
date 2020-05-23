@@ -114,8 +114,9 @@ void Plane::addPassenger(const char* fullName)
         passengers[offset + yourSeat] = pos;
         
         // Update binary outfile
-        short flightNum = getFlightNumber(); // and passenger fullName, yourSeat, seatLabel, etc
-        fout.write((char*) &____, sizeof(____));
+        short flightNum = getFlightNumber();
+        Passenger passenger = new Passenger(flightNum, yourRow, seatLabel, fullName);
+        fout.write((char*) &passenger, sizeof(Passenger));
         
         reserved++;
         */
