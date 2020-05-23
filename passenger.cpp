@@ -1,7 +1,7 @@
 #include <string>
 #include "passenger.h"
 
-Passenger::Passenger(): flightNum(-1 /* -1: Passenger DNE */) {} // Passenger() Empty Constructor
+// Passenger::Passenger(): flightNum(-1 /* -1: Passenger DNE */) {} // Passenger() Empty Constructor
 
 Passenger::Passenger(short flightNumber, short row, char label, char* newName): 
 flightNum(flightNumber), seatRow(row), seatLabel(label) {
