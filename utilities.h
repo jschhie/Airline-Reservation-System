@@ -24,7 +24,7 @@ void selectFlight(Flight* currFlights, int numFlights);
 
 bool findFlight(Flight* currFlights, int numFlights, int target);
 
-void selectSeat(Plane* yourPlane, const char* fullName);
+void selectSeat(int yourFlightNum, Plane* yourPlane, const char* fullName);
 /*
 void writeBack(const Flight* currFlights, int totalFlights, fstream& outFile);
 */

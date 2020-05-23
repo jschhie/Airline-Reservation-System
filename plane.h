@@ -11,7 +11,6 @@ class Plane
 
     int rows, width, reserved, flightNum;
     int* passengers; // Array of offsets in binary file
-    //char** passengers; // Row-major order matrix of passenger names
 
 public:
 
@@ -20,7 +19,7 @@ public:
     int getWidth() const;
     int getRows() const;
     int getReservations() const;
-    void addPassenger(const char* fullName);
+    void addPassenger(int flightNumber, const char* fullName);
 //    void writePlaneInfo(fstream& outFile) const;
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 

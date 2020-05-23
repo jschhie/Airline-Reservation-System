@@ -9,8 +9,8 @@ class Passenger
 
 public:
     
-    // Passenger();
-    Passenger(short flightNumber, short row, char label, char* newName); // note: need to compile still
+    Passenger(); // Default
+    Passenger(short flightNumber, short row, char label, const char* newName); // With args
     int getFlightNum() const;
     int getSeatRow() const;
     int getSeatLabel() const;

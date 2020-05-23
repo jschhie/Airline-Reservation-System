@@ -14,16 +14,16 @@ using namespace std;
 
 
 Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
-    rows(numRows), width(numSeats), reserved(numRsrv), flightNum(flightNumber)
+    rows(numRows), width(numSeats), reserved(numRsrv ), flightNum(flightNumber)
 {
     // Create & initialize 2-D array of offsets
     int capacity = numRows * numSeats;
-    //int newArray [capacity];
     passengers = new int [capacity];
     for (int i = 0; i < capacity; i++)
         passengers[i] = -1;
-
 } // Plane() Constructor 2.0
+
+int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
 
 
 int Plane::getWidth() const { return width; } // getWidth()
@@ -35,11 +35,7 @@ int Plane::getRows() const { return rows; } // getRows()
 int Plane::getReservations() const { return reserved; } // getReservations()
 
 
-int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
-// NOTE: maybe remove this and just pass flightNumber to Plane addPassenger() method
-
-
-void Plane::addPassenger(const char* fullName)
+void Plane::addPassenger(int flightNumber, const char* fullName)
 {
     int yourRow = -1, yourSeat = 0, index = -1;
     char line[80], seatLabel;
@@ -100,29 +96,27 @@ void Plane::addPassenger(const char* fullName)
 
     // Check if requested row and seat combo is free
     int offset = (yourRow-1) * width;
-    //if(strlen(passengers[offset+yourSeat]))
     if (passengers[offset + yourSeat] != -1)
         cout << "Requested Row, Seat: " << yourRow << ", " << seatLabel << " is already reserved.\n";
     else // Can add passenger to Plane
     {
-        //strcpy(passengers[offset+yourSeat], fullName);
-
-        // TODO: WORK IN PROGRESS
-        
-        /*
-        fstream fout open("refs/passengers.dat", ios::out | ios::app | ios::binary);
+        fstream fout;
+        fout.open("refs/passengers2.dat", ios::out | ios::app | ios::binary);
         int pos = fout.tellg(); 
         passengers[offset + yourSeat] = pos;
         
-        // Update binary outfile
-        short flightNum = getFlightNum(); maybe no need if pass it to method
-        Passenger passenger = new Passenger(flightNum, yourRow, seatLabel, fullName);
-        fout.write((char*) &passenger, sizeof(Passenger));
-        
-        reserved++;
-        */
+        // Write Passenger to file
+        //short flightNum = getFlightNum(); // maybe no need if pass it to method
+        Passenger* passenger = new Passenger(flightNumber, yourRow, seatLabel, fullName);
+        fout.write((char*) passenger, sizeof(Passenger));
 
+        // Clean up & update total reservations
+        delete passenger;
+        fout.close();
+        reserved++;
     }
+
+    return;
 
 } // addPassenger() 2.0
 

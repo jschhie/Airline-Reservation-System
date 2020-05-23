@@ -132,7 +132,7 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
             cin.ignore(); // Flush buffer to remove '\n' char
             cin.getline(fullName, 80);
             Plane* matchingPlane = currFlights[i].getPlane();
-            selectSeat(matchingPlane, fullName);
+            selectSeat(target, matchingPlane, fullName);
             return true;
         }
     }
@@ -140,20 +140,22 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
 } // findFlight()
 
 
-void selectSeat(Plane* yourPlane, const char* fullName)
+void selectSeat(int yourFlightNum, Plane* yourPlane, const char* fullName)
 {
+
     int capacity = yourPlane->getWidth() * yourPlane->getRows();
     int numOccupied = yourPlane->getReservations();
+    
     // First check if yourPlane is full
     if (capacity == numOccupied)
-    {
         cout << "Unfortunately requested Flight is full.\n\n"; 
-        return;
+    else 
+    {
+        // Display Header and Plane Seating Visual
+        cout << *yourPlane;
+        yourPlane->addPassenger(yourFlightNum, fullName);
     }
-    // Display Header and Plane Seating Visual
-    cout << *yourPlane;
-    //TODO: yourPlane->addPassenger(fullName);
-    return;
+
 } // selectSeat()
 
 /*
