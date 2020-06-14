@@ -47,6 +47,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         cout << "Please enter the row of the seat you wish to reserved >> ";
         cin.getline(line, 80);
         yourRow = checkChoice(line);
+
         if(yourRow > 0 && yourRow <= rows)
             break;
         else if(yourRow == 0) 
@@ -55,7 +56,8 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         {
             cout << "There is no row #" << line << " on this flight.\n";
             cout << "Please try again.\n\n";
-       } 
+        }
+
     } while(1);
     
     do // Get and validate seat label
@@ -73,7 +75,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
                 continue;
             }
             // Otherwise, invalid char seen
-            index = -1; 
+            index = -1;
             if(line[c] == '0')
                 return; // Return to Main Menu
             break;
@@ -106,7 +108,6 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         passengers[offset + yourSeat] = pos;
         
         // Write Passenger to file
-        //short flightNum = getFlightNum(); // maybe no need if pass it to method
         Passenger* passenger = new Passenger(flightNumber, yourRow, seatLabel, fullName);
         fout.write((char*) passenger, sizeof(Passenger));
 
