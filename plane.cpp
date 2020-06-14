@@ -148,7 +148,6 @@ void Plane::writePlaneInfo(fstream& outFile) const
 
 Plane::~Plane()
 {
-    cout << "Deleting Plane" << endl;
     if (passengers)
         delete [] passengers;
     else

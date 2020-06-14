@@ -18,9 +18,10 @@ using namespace std;
 /* Driver Program */
 int main(int argc, char** argv)
 {
-    if(argc != 3) // NOTE: Three args not needed, see note below
+
+    if(argc != 2)
     {
-        cout << "Expected Arguments: ./airline.out <inputFileName> <outputFileName>\n";
+        cout << "Expected Arguments: ./airline.out <inputFileName> \n";
         return 0;
     }
 
@@ -64,23 +65,6 @@ int main(int argc, char** argv)
         // Get next choice
         choice = getChoice();
     } // Running loop
-   
-    /*
-    
-    // NOTE: No longer needed since Plane::addPassenger() handles writing to binary file
-
-    // Create new file for current reservations   
-    fstream fout;
-    fout.open(argv[2], ios::out | ios::trunc);
-    
-    if(!fout)
-        cout << "Failed to create new file.\n";     
-    else
-    {
-        writeBack(flights, numFlights, fout);
-        fout.close();
-    }
-    */
 
     // Clean up 
     delete [] flights;
