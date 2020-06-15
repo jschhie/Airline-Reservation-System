@@ -1,6 +1,6 @@
 # Airline Reservation System Project
 
-# NOTE: Links do not reflect current master branch. Only program descriptions have been updated.
+# NOTE: Links do not reflect current binaryFiles branch. Only program descriptions have been updated.
 
 ## Brief Description
 Airline Reservation System Project (Spring 2020; C++)
@@ -25,7 +25,7 @@ The very first line must state the total number of flights, *k*, for this airlin
 
 The table below summarizes and exemplifies the formatting.
 | Line # | Value(s) | Example | Extra Notes |
-| :------: | :--------: | :----------- | :--------:|
+| :------: | :--------: | :-----------: | :--------:|
 | 1 | Number of flights in total |  ```4```| Single Integer, *k* |
 | 2 | First Flight's flight number, origin, destination, total rows, total seats per row | ```815, Reno, San Diego, 5, 6``` | Flight #815 has a seating capacity of 30 (i.e., 5 rows * 6 seats per row) |
 | ...| ...| ...|...|
