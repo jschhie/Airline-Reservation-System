@@ -54,3 +54,5 @@ Upon request, the program will display all flights, where each one is identified
 
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
 
+## Acknowledgments
+My former professor created some of the sample input files found in the /refs/ directory (i.e., ```flights.csv```, ```reservations.txt```, and ```passengers2.dat```). The source code and README were both written by myself. 
