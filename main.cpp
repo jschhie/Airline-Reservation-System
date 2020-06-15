@@ -8,6 +8,7 @@
 #include <string>
 
 #include "flight.h"
+#include "passenger.h"
 #include "plane.h"
 #include "utilities.h"
 
@@ -17,9 +18,10 @@ using namespace std;
 /* Driver Program */
 int main(int argc, char** argv)
 {
-    if(argc != 3)
+
+    if(argc != 2)
     {
-        cout << "Expected Arguments: ./airline.out <inputFileName> <outputFileName>\n";
+        cout << "Expected Arguments: ./airline.out <inputFileName> \n";
         return 0;
     }
 
@@ -40,7 +42,7 @@ int main(int argc, char** argv)
     int numFlights = stoi(firstLine);
     Flight* flights = new Flight[numFlights];
     for(int i = 0; i < numFlights; i++)
-        fin >> flights[i];
+        fin >> flights[i]; 
     
     // Done reading from given file
     fin.close();
@@ -63,21 +65,9 @@ int main(int argc, char** argv)
         // Get next choice
         choice = getChoice();
     } // Running loop
-    
-    // Create new file for current reservations   
-    fstream fout;
-    fout.open(argv[2], ios::out | ios::trunc);
-    
-    if(!fout)
-        cout << "Failed to create new file.\n";     
-    else
-    {
-        writeBack(flights, numFlights, fout);
-        fout.close();
-    }
 
-    // Clean up and exit
-    delete [] flights;    
+    // Clean up 
+    delete [] flights;
     return 0;
 
 } // End of main()

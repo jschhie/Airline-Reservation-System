@@ -1,4 +1,4 @@
-#include <string>
+#include <cstring>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -39,10 +39,10 @@ Plane* Flight::getPlane() const { return plane; } // getPlane()
 ostream& operator<< (ostream& os, const Flight& flightRef) 
 {
 
+    // Indirect access via getters
     os << flightRef.getFlightNum() << setw(20); 
     os << flightRef.getOrigin() << setw(20);
-    os << flightRef.getDestination() << '\n'; 
-    // Indirect access
+    os << flightRef.getDestination() << '\n';
 
     return os;
 
@@ -51,36 +51,27 @@ ostream& operator<< (ostream& os, const Flight& flightRef)
 
 istream& operator>> (istream& is, Flight& flightRef)
 {
-
-    int numRows, numSeats, numReserved;
+    int numRows, numSeats;
     char line[80];
 
-    while(is.getline(line, 80))
-    {
-        // Copy over Flight Info
-        flightRef.flightNum = stoi(line);
-        is.getline(line, 20);
-        line[strlen(line)-1] = '\0'; 
-        strcpy(flightRef.origin, line);
-        is.getline(line, 20);
-        line[strlen(line)-1] = '\0';
-        strcpy(flightRef.destination, line);
-        
-        // Copy over Plane Info
-        is.getline(line, 80, ' ');
-        numRows = stoi(line);
-        is.getline(line, 80, ' ');
-        numSeats = stoi(line);
-        is.getline(line, 80);
-        numReserved = stoi(line);
+    // Parse Flight info
+    is.getline(line, 80, ',');
+    flightRef.flightNum = stoi(line);
+    is.getline(line, 80, ',');
+    strcpy(flightRef.origin, line);
+    is.getline(line, 80, ',');
+    strcpy(flightRef.destination, line);
 
-        flightRef.plane = new Plane(numRows, numSeats, numReserved);
-        is >> *flightRef.plane;
-        
-        break; // Stop reading rest of file contents
-
-    } // while more line in the reservations.txt
+    // Get Plane info
+    is.getline(line, 80, ',');
+    numRows = stoi(line);
+    is.getline(line, 80); // until EOF
+    numSeats = stoi(line);
+    
+    // Create Plane and update Plane::passengers
+    flightRef.plane = new Plane(numRows, numSeats, 0, flightRef.getFlightNum());
+    is >> *flightRef.plane;
 
     return is;
 
-} // operator>>()
+} // operator>>() 2.0

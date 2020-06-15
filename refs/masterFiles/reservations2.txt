@@ -1,0 +1,17 @@
+4
+815
+Sacramento
+Stockton
+4 4 10
+583
+Reno
+Sacramento
+7 4 14
+265
+Reno
+Los Angeles
+9 2 10
+201
+Reno
+San Francisco
+7 2 8

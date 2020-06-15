@@ -1,44 +1,48 @@
-# Airline Reserv Project
+# Airline Reservation System Project
+
+# NOTE: Links do not reflect current binaryFiles branch.
 
 ## Brief Description
 Airline Reservation System Project (Spring 2020; C++)
 
 ## Table of Contents
-* [How to Run the Program](https://github.com/jschhie/airline-reserv/#how-to-run-the-program)
+* [How to Run the Program](https://github.com/jschhie/airline-reserv/blob/binaryFiles/README.md#airline-reservation-system-project#how-to-run-the-program)
+  * [Input CSV File Formatting](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting)
   * [Supplying an Input Script](https://github.com/jschhie/airline-reserv/#supplying-an-input-script)
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#usage)
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
-* [I/O File Formatting](https://github.com/jschhie/airline-reserv/#input--output-file-formatting)
 
-## How to Run the Program
-For convenience, the corresponding Makefile has been provided, as well as a sample reservations.txt file. Expected command line arguments: ```./airline.out inputFile outputFile```.
+## How to Run the Program  
+For convenience, the corresponding ```Makefile``` and a sample ```flights.csv``` file has been provided.
+
+This program expects two command line arguments as follows: ```./airline.out flights.csv```. The CSV file is to contain  information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
+
+Additionally, a sample ```passengers.dat``` file has been provided in the /refs/ directory. This binary file holds default  flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers, or pre-existing bookings. 
+
+#### Input CSV File Formatting
+The very first line must state the total number of flights, *k*, for this airline reservation system. The subsequent *k* lines specify each flight's associated flight number, origin, destination, and plane dimensions. Note that only the flight numbers need to be unique. 
+
+The table below summarizes and exemplifies the formatting.
+| Line # | Value(s) | Example | Extra Notes |
+| :------: | :--------: | :-----------: | :--------:|
+| 1 | Number of flights in total |  ```4```| Single Integer, *k* |
+| 2 | First Flight's flight number, origin, destination, total rows, total seats per row | ```815, Reno, San Diego, 5, 6``` | Flight #815 has a seating capacity of 30 (i.e., 5 rows * 6 seats per row) |
+| ...| ...| ...|...|
+| *k* | Last Flight's flight number, origin, destination, total rows, total seats per row | ```512, Davis, Reno, 4, 4 ```| The last flight has a seating capacity of 16 (i.e., 4 rows * 4 seats per row) | 
+
+> REMARK: For the sake of readability, the values listed have been separated by a comma followed by a single whitespace. The actual CSV format requires that they are separated by just a comma. 
 
 #### Supplying an Input Script
-You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out inputFile.txt outputFile.txt```.
+You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out flights.csv```.
 
 ## Usage
 The current implementation offers users two choices: (0) Exiting the program, and (1) Adding a passenger.
 
 #### Choice 0. Exiting the Program
-Before exiting, program automatically generates a new file with the specified name (i.e. the last command line argument). The contents reflect the changes made (if any) to the airline reservation system during runtime. Both this ```outputFile``` and ```inputFile``` share the same format as detailed [last section](https://github.com/jschhie/airline-reserv/#input--output-file-formatting).
+This program does not generate any new files. Instead, it updates/appends to the said ```passengers.dat``` file. The file's contents reflect the changes made (if any) to the airline reservation system during runtime. 
 
 #### Choice 1. Adding a New Passenger
 Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied, or respective plane capacity has not been reached yet). 
 
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
-
-## Input & Output File Formatting
-The very first line should state the total number of flights for this airline reservation system. The following descriptions apply for each flight instance. The first four lines of metadata lists the (1) flight number, (2) origin, (3) destination, and (4) the plane's seating capacity and initial number of reservations. Finally, if the flight has *k* reservations, then the immediate *k* lines will list each booked seat. 
-
-The table below summarizes and exemplifies the formatting.
-
-| Line # | Value(s) | Example | Extra Notes |
-| :------: | :--------: | :----------- | :--------:|
-| 1 | Number of flights in total |  ```4```| Single Integer |
-| 2 | Flight number | ```123``` | Single Integer |
-| 3 | Origin | ```San Diego``` | String |
-| 4 | Destination | ```Los Angeles``` | String |
-| 5 | number of rows and seats per row, followed by number of reservations (each sep. by a space)| ```10 2 3``` | Three Integers (in this example, the plane capacity is 10 * 2 = 20 passengers, and there are currently 3 reservations) |
-| 6 | First Reservation (if any) | ```10B Alice Wong``` | Alice Wong has made a reservation for Row #10, Seat B (for a particular flight) |
-| ...| ...| ...|...|
