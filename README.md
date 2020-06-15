@@ -6,7 +6,7 @@
 Airline Reservation System Project (Spring 2020; C++)
 
 ## Table of Contents
-* [How to Run the Program](https://github.com/jschhie/airline-reserv/blob/binaryFiles/README.md#airline-reservation-system-project#how-to-run-the-program)
+* [How to Run the Program](https://github.com/jschhie/airline-reserv/#airline-reservation-system-project#how-to-run-the-program)
   * [Input CSV File Formatting](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting)
   * [Supplying an Input Script](https://github.com/jschhie/airline-reserv/#supplying-an-input-script)
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#usage)
