@@ -20,7 +20,6 @@ public:
     int getRows() const;
     int getReservations() const;
     void addPassenger(int flightNumber, const char* fullName);
-//    void writePlaneInfo(fstream& outFile) const;
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 
     friend ostream& operator<< (ostream& os, const Plane& planeRef);

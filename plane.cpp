@@ -122,31 +122,6 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
 } // addPassenger() 2.0
 
 
-/*
-void Plane::writePlaneInfo(fstream& outFile) const
-{
-    outFile << rows << ' ' << width << ' ' << reserved << endl;
-
-    int offset = 0;
-    char* temp;
-    for(int i = 0; i < rows; i++)
-    {
-        offset = i * width;
-        for(int j = 0; j < width; j++)
-        {
-            temp = passengers[offset+j];
-            if(temp && strlen(temp))
-                // Non-empty seat if name > 0 chars
-                // Dynamically allocated space beforehand: default with empty strings
-                // Cast from int to char to ASCII rep.
-                outFile << i+1 << static_cast<char>(j+'A') << ' ' << temp << endl;
-        }
-    }
-
-} // writePlaneInfo()
-*/
-
-
 Plane::~Plane()
 {
     if (passengers)
