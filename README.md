@@ -29,7 +29,7 @@ The table below summarizes and exemplifies the formatting.
 | ...| ...| ...|...|
 | *k* | Last Flight's flight number, origin, destination, total rows, total seats per row | ```512, Davis, Reno, 4, 4 ```| The last flight has a seating capacity of 16 (i.e., 4 rows * 4 seats per row) | 
 
-> REMARK: For the sake of clarity, the values listed have been separated by a comma followed by a single whitespace. The actual CSV format requires that they are separated by just a comma. 
+> REMARK: For the sake of readability, the values listed have been separated by a comma followed by a single whitespace. The actual CSV format requires that they are separated by just a comma. 
 
 #### Supplying an Input Script
 You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out flights.csv```.
