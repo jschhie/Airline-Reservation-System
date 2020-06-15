@@ -1,4 +1,4 @@
-# Airline Reserv Project
+# Airline Reservation System Project
 
 ## Brief Description
 Airline Reservation System Project (Spring 2020; C++)
