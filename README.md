@@ -1,6 +1,6 @@
 # Airline Reservation System Project
 
-# NOTE: Links do not reflect current binaryFiles branch. Only program descriptions have been updated.
+# NOTE: Links do not reflect current binaryFiles branch.
 
 ## Brief Description
 Airline Reservation System Project (Spring 2020; C++)
