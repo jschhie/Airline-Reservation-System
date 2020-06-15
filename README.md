@@ -1,5 +1,7 @@
 # Airline Reservation System Project
 
+# NOTE: Links do not reflect current master branch. Only program descriptions have been updated.
+
 ## Brief Description
 Airline Reservation System Project (Spring 2020; C++)
 
