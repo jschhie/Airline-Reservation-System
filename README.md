@@ -1,15 +1,13 @@
 # Airline Reservation System Project
 
-# NOTE: Links in progress.
-
 ## Brief Description
 Airline Reservation System Project (Spring 2020; C++)
 
 ## Table of Contents
-* [How to Run the Program](https://github.com/jschhie/airline-reserv/#airline-reservation-system-project#how-to-run-the-program)
+* [How to Run the Program](https://github.com/jschhie/airline-reserv/#how-to-run-the-program)
   * [Input CSV File Formatting](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting)
   * [Supplying an Input Script](https://github.com/jschhie/airline-reserv/#supplying-an-input-script)
-* [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#usage)
+* [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
 
@@ -36,7 +34,7 @@ The table below summarizes and exemplifies the formatting.
 #### Supplying an Input Script
 You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out flights.csv```.
 
-## Usage
+## Program Usage
 The current implementation offers users two choices: (0) Exiting the program, and (1) Adding a passenger.
 
 #### Choice 0. Exiting the Program
