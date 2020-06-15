@@ -13,7 +13,7 @@ This program simulates an airline reservation system. Its capabilities are as fo
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
-* [Acknowledgments] (https://github.com/jschhie/airline-reserv/#acknowledgments)
+* [Acknowledgments](https://github.com/jschhie/airline-reserv/#acknowledgments)
 
 
 ## How to Run the Program  
