@@ -1,5 +1,5 @@
 # Airline Reservation System
-> Spring 2020; C++
+> Created in Spring 2020; written in C++.
 
 
 ## Project Overview
