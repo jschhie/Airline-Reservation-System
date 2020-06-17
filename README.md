@@ -21,7 +21,7 @@ For convenience, the corresponding ```Makefile``` and a sample ```flights.csv```
 
 This program expects two command line arguments as follows: ```./airline.out flights.csv```. The CSV file is to contain  information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
 
-Additionally, a sample ```passengers.dat``` file has been provided in the /refs/ directory. This binary file holds default  flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers, or pre-existing bookings. 
+Additionally, a sample ```passengers.dat``` file has been provided in the /refs/ directory. This binary file holds default  flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers. 
 
 
 #### Input CSV File Formatting
