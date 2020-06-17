@@ -58,7 +58,9 @@ During these series of interactions, the user can also return back to the Main M
 
 
 ## Visual Demo
-This demo uses the provided ```flights.csv``` and ```passengers.dat``` files. It attempts to add two additional passengers into Flight #815 as shown below. After registering "Jane Doe," the entire first row becomes full. Subsequent passengers may  request a seat on a different row or flight number, or return to the Main Menu.
+This demo uses the provided ```flights.csv``` and ```passengers.dat``` files. 
+
+It attempts to add two additional passengers into Flight #815 as shown below. After registering "Jane Doe," the entire first row becomes full. Subsequent passengers may  request a seat on a different row or flight number, or return to the Main Menu.
 
 | Initial State | Final State |
 | ----- | ----- |
