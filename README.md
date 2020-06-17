@@ -13,6 +13,7 @@ This program simulates an airline reservation system. Its capabilities are as fo
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
+* [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
 * [Acknowledgments](https://github.com/jschhie/airline-reserv/#acknowledgments)
 
 
@@ -54,6 +55,15 @@ This program does not generate any new files. Instead, it updates/appends to the
 Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied, or respective plane capacity has not been reached yet). 
 
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
+
+
+## Visual Demo
+This demo uses the provided ```flights.csv``` and ```passengers.dat``` files. It attempts to add two additional passengers into Flight #815 as shown below. After registering "Jane Doe," the entire first row becomes full. Subsequent passengers may  request a seat on a different row or flight number, or return to the Main Menu.
+
+| Initial State | Final State |
+| ----- | ----- |
+| ![alt text](https://github.com/jschhie/airline-reserv/blob/master/demo/flight_815_before.png?raw=true "Initial State") | ![alt text](https://github.com/jschhie/airline-reserv/blob/master/demo/flight_815_after.png?raw=true "Final State") |
+
 
 ## Acknowledgments
 My former professor created some of the sample input files found in the /refs/ directory (i.e., ```flights.csv```, ```reservations.txt```, and ```passengers2.dat```). The source code and README were both written by myself. 
