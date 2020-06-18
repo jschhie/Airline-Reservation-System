@@ -3,7 +3,12 @@
 
 
 ## Project Overview
-This program simulates an airline reservation system. Its capabilities are as follows: Handling reservations as part of program initialization; adding new passengers while detecting duplicate requests; and maintaining varied seating capacities across multiple flights.
+This program simulates an airline reservation system. 
+
+### Features:
+- Handles reservations as part of program initialization
+- Adds new passengers while detecting duplicate requests
+- Maintains various seating capacities across multiple flights
 
 
 ## Table of Contents
