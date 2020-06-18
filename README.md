@@ -23,11 +23,11 @@ This program simulates an airline reservation system.
 
 
 ## How to Run the Program  
-For convenience, the corresponding ```Makefile``` and a sample ```flights.csv``` file has been provided.
+For convenience, the corresponding ```Makefile``` has been provided. The user should *first* go into the /source_code/ directory and then run the command: ```make all``` to create the program executable called ```airline.out```.
 
-This program expects two command line arguments as follows: ```./airline.out csv_file.csv```. The CSV file is to contain  information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
+Next, this program expects two command line arguments as follows: ```./airline.out filepath/csv_file.csv```. The CSV file is to contain information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
 
-Additionally, a sample ```passengers.dat``` file has been provided. This binary file holds default flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers. 
+Lastly, a sample ```flights.csv``` and a ```passengers.dat``` file can be found in the /refs/ directory. The latter is a binary file with sample flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers. 
 
 
 #### Input CSV File Formatting
