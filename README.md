@@ -25,9 +25,9 @@ This program simulates an airline reservation system.
 ## How to Run the Program  
 For convenience, the corresponding ```Makefile``` and a sample ```flights.csv``` file has been provided.
 
-This program expects two command line arguments as follows: ```./airline.out flights.csv```. The CSV file is to contain  information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
+This program expects two command line arguments as follows: ```./airline.out csv_file.csv```. The CSV file is to contain  information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
 
-Additionally, a sample ```passengers.dat``` file has been provided in the /refs/ directory. This binary file holds default  flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers. 
+Additionally, a sample ```passengers.dat``` file has been provided. This binary file holds default flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers. 
 
 
 #### Input CSV File Formatting
@@ -63,7 +63,7 @@ During these series of interactions, the user can also return back to the Main M
 
 
 ## Visual Demo
-This demo uses the provided ```flights.csv``` and ```passengers.dat``` files. 
+This demo uses the provided ```flights.csv``` and ```passengers.dat``` files, both of which can be found in the /refs/ directory. 
 
 It attempts to add two additional passengers into Flight #815 as shown below. After registering "Jane Doe," the entire first row becomes full. Subsequent passengers may  request a seat on a different row or flight number, or return to the Main Menu.
 
