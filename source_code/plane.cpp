@@ -103,7 +103,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
     else // Can add passenger to Plane
     {
         fstream fout;
-        fout.open("refs/passengers2.dat", ios::out | ios::app | ios::binary);
+        fout.open("../refs/passengers.dat", ios::out | ios::app | ios::binary);
         int pos = fout.tellg(); 
         passengers[offset + yourSeat] = pos;
         
@@ -134,7 +134,7 @@ Plane::~Plane()
 istream& operator>> (istream& is, Plane& planeRef)
 {
 
-    ifstream inFile("refs/passengers.dat", ios::binary);
+    ifstream inFile("../refs/passengers.dat", ios::binary);
 
     if (inFile.is_open())
     {
