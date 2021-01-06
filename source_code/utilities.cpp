@@ -91,11 +91,14 @@ void showFlights(const Flight* currFlights, int numFlights)
 void selectFlight(Flight* currFlights, int numFlights)
 {
     char yourFlight[80] = "";
-    int intFlight; // Assuming valid input with all digits   
+    int intFlight;
+    bool validNum; 
     do 
     {
+        validNum = true;
         cout << "Flight Number (Enter 0 to return to Main Menu) >> ";
         cin.getline(yourFlight, 80); // To remove '\n' from buffer
+
         if (strlen(yourFlight) == 0)
         {
             // User entered newline alone
@@ -103,17 +106,31 @@ void selectFlight(Flight* currFlights, int numFlights)
             continue;
         }
 
-        intFlight = stoi(yourFlight);
-        
-        if (intFlight == 0) break;
-        
-        else if (intFlight > 0 && findFlight(currFlights, numFlights, intFlight)) break;
+        if (strcmp(yourFlight,"0") == 0) break; // Return to Main Menu
+
+        // Check for invalid characters
+        for (int i = 0; i < strlen(yourFlight); i++) {
+            if (!isdigit(yourFlight[i])) {
+                validNum = false;
+                break;
+            }
+        }
+
+        // Input contains only digits
+        if (validNum) {
+            intFlight = stoi(yourFlight);
+            if (findFlight(currFlights, numFlights, intFlight)) {
+                break;
+            } else {
+                cout << "We do not have a Flight Number #" << yourFlight << endl;
+                validNum = false;
+            }
+        }
 
         // Default: Display error message
-        cout << "We do not have a flight number #" << intFlight << endl;
         cout << "Please try again.\n\n";
 
-    } while(intFlight);
+    } while(!validNum);
 
     return;
 } // selectFlight()
@@ -127,6 +144,7 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
         flightNumber = currFlights[i].getFlightNum();
         if (flightNumber == target)
         {
+            cout << "Flight Number #" << flightNumber << " is available.\n";
             char fullName[80]; // Assumes 80 chars max
             cout << "Please enter the name of the passenger >> ";
             cin.ignore(); // Flush buffer to remove '\n' char
