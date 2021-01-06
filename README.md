@@ -6,7 +6,6 @@
 This program simulates an airline reservation system. 
 
 ### Features:
-- Handles reservations as part of program initialization
 - Adds new passengers while detecting duplicate requests
 - Maintains various seating capacities across multiple flights
 
