@@ -44,8 +44,11 @@ The table below summarizes and exemplifies the formatting.
 | ...| ...| ...|...|
 | *k*+1 | Last Flight's flight number, origin, destination, total rows, total seats per row | ```512, Davis, Reno, 4, 4 ```| The last flight has a seating capacity of 16 (i.e., 4 rows * 4 seats per row) | 
 
+<details><summary><b>Show Details</b></summary>
+ 
 > REMARK: For the sake of readability, the values listed have been separated by a comma followed by a single whitespace. The actual CSV format requires that they are separated by just a comma. 
 
+</details>
 
 #### Supplying an Input Script
 You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out flights.csv```.
@@ -56,7 +59,7 @@ The current implementation offers users the following choices: (0) Exiting and s
 
 
 #### Choice 0. Exiting the Program
-This program does not generate any new files. Instead, it updates/appends to the said ```passengers.dat``` file. The file's contents reflect the changes made (if any) to the airline reservation system during runtime. 
+This program does not generate any new files. Instead, it modifies the said ```passengers.dat``` file. The file's contents reflect the changes made (if any) to the airline reservation system during runtime. 
 
 
 #### Choice 1. Adding a New Passenger
