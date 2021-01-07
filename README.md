@@ -1,5 +1,5 @@
 # Airline Reservation System
-> Created in Spring 2020 as an independent project. Written in C++.
+> Created in Spring 2020 as an independent project (ongoing). Written in C++.
 
 
 ## Project Overview
@@ -8,6 +8,7 @@ This program simulates an airline reservation system.
 ### Features:
 - Adds new passengers while detecting duplicate requests
 - Maintains various seating capacities across multiple flights
+- Allows for reservation lookups
 
 A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#visual-demo).
 
@@ -19,6 +20,7 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
+  * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
 * [Acknowledgments](https://github.com/jschhie/airline-reserv/#acknowledgments)
 
@@ -50,7 +52,7 @@ You can supply an optional script containing your choices/responses with the fol
 
 
 ## Program Usage
-The current implementation offers users two choices: (0) Exiting the program, and (1) Adding a passenger.
+The current implementation offers users the following choices: (0) Exiting and saving the program, (1) Adding a passenger, and (2) Looking up reservation details. 
 
 
 #### Choice 0. Exiting the Program
@@ -60,7 +62,13 @@ This program does not generate any new files. Instead, it updates/appends to the
 #### Choice 1. Adding a New Passenger
 Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied, or respective plane capacity has not been reached yet). 
 
+Once the user has successfully booked their reservation, the program will generate a unique Ticket Number, which can later be used for looking up their flight details. 
+
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
+
+
+#### Choice 2. Looking Up Reservation Details
+To look up their flight details, the user needs to provide their unique Ticket Number that was generated after booking their flight. The program will then display all relevant information, if a valid Ticket Number is given. 
 
 
 ## Visual Demo
