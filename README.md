@@ -76,7 +76,7 @@ This demo uses the provided ```flights.csv``` and ```passengers.dat``` files fro
 It also uses the "inPassenger.txt" and "inTicketCheck.txt" scripts from the /source_code/sampleScripts/ directory.
 
 | Program State | Description |
-| ----- | ----- |
+| ----- | :-----: |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Show%20Menu.png?raw=true "Main Menu") | Main Menu Display |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Current%20Flights%20Menu.png?raw=true "Flights Menu") | Current Flights Menu |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20Passenger.png?raw=true "Add Passenger") | Register "Rebecca Smith" as a new passenger to Flight #552. Here, Seat 8A was selected. Ticket Number generated: "552-42." | 
