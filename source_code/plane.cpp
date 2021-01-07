@@ -19,7 +19,7 @@ Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
     int capacity = numRows * numSeats;
     passengers = new int [capacity];
     for (int i = 0; i < capacity; i++)
-        passengers[i] = -1;
+        passengers[i] = -1; // -1: Avaiable, unoccupied seat
 } // Plane() Constructor 2.0
 
 bool Plane::checkSeat(int seatIndex)
@@ -87,7 +87,8 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
 
         for(int c = 0; c < strlen(line); c++)
         {
-            if(iswspace(line[c])) continue;
+            if(iswspace(line[c])) 
+                continue;
             else if(isalpha(line[c]) && index == -1)
             {
                 index = c;
@@ -111,7 +112,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
     yourSeat = int(seatLabel) - int('A'); // Starts at index 0
     if (yourSeat >= width)
     {
-        cout << "Requested seat letter DNE on this flight.\n";
+        cout << "Requested seat letter does not exist for this flight.\n";
         return;
     }
 
@@ -123,7 +124,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
     {
         // Generate Unique TicketID for user
         cout << "\nReservation Complete. Confirmation Ticket #: " << flightNumber << '-' << (offset + yourSeat) << endl;
-        cout << "Please save your ticket number!\n\n";
+        cout << "Please save your ticket number.\n\n";
         
         // Write new binary Passenger object
         fstream fout;

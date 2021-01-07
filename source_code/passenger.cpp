@@ -25,17 +25,19 @@ const char* Passenger::getName() const { return name; } // getName()
 
 ostream& operator<< (ostream& os, const Passenger& passRef)
 {
-    cout << "\n\t\tRESERVATION DETAILS" << endl;
-    cout << "------------------------------------------------" << endl;
+    int numReps = 43;
+    cout << string(numReps, '=') << endl;
+    string header = "Flight Reservation Details";
+    int numSpaces = (numReps - header.size()) / 2;
+    cout << string(numSpaces, ' ') << header << endl;
+    cout << string(numReps, '-') << endl;
 
-    cout << "Passenger Name: ";
-    cout << passRef.getName() << endl;
+    cout << "Passenger Name: " << passRef.getName() << endl;
     cout << setw(16) << "Flight Number: " << passRef.getFlightNum() << endl;
 
     int index = passRef.getSeatLabel() + 1;
     char seatChar = static_cast<char>('A' - 1 + index);
-    cout << setw(16) << "Reserved Seat: ";
-    cout << passRef.getSeatRow() << seatChar;
+    cout << setw(16) << "Reserved Seat: " << passRef.getSeatRow() << seatChar;
     
     return os;
 }

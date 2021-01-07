@@ -11,8 +11,7 @@ class Flight
 {
 
     int flightNum;
-    char origin[20];
-    char destination[20];
+    char origin[20], destination[20];
     Plane* plane;
 
 public:

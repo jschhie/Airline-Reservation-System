@@ -6,8 +6,14 @@ using namespace std;
 /* Subfunctions */
 void printMenu()
 {
-    cout << "Flight Reservation Menu" << endl;
-    cout << "0. Exit\n1. Add Passenger\n2. Find Passenger Information" << endl;
+    int numReps = 43;
+    cout << string(numReps, '=') << endl;
+    string header = "Flight Reservation Menu";
+    int numSpaces = (numReps - header.size()) / 2;
+    cout << string(numSpaces, ' ') << header << endl;
+    cout << string(numReps, '-') << endl;
+    cout << "0. Exit & Save Data\n1. Add New Passenger\n2. Find Passenger Information" << endl;
+    cout << string(numReps, '=') << endl;
     cout << "\nYour Choice >> ";
 } // printMenu()
 
@@ -76,13 +82,16 @@ void showFlights(const Flight* currFlights, int numFlights)
     }
     
     // Otherwise, print out each Flight's number, origin, and destination
-    cout << "Flight#\t\tOrigin\t\tDestination" << endl;
-    cout << "------------------------------------------------" << endl;
-    
+    char border = '=';
+    int numReps = 43;
+    cout << string(numReps, border) << endl;
+    cout << "Flight#\t\tOrigin\t\tDestination\n";
+    cout << string(numReps, '-') << endl;
+     
     for (int i = 0; i < numFlights; i++)
         cout << currFlights[i];
     
-    cout << endl;
+    cout << string(numReps, border) << endl << endl;
     return;
 
 } // showFlights()
@@ -152,13 +161,14 @@ bool findFlight(Flight* currFlights, int numFlights, int target, int seatChoice,
                     cout << setw(16) << "Origin City: ";
                     cout << currFlights[i].getOrigin() << endl;
                     cout << setw(16) << "Destination: ";
-                    cout << currFlights[i].getDestination() << "\n\n";
+                    cout << currFlights[i].getDestination() << endl;
+                    cout << string(43, '=') << endl << endl;
                     return true;
                 }
                 return false;
             }
-            cout << "\nFlight Number #" << flightNumber << " is available.\n";
 
+            cout << "\nFlight Number #" << flightNumber << " is available.\n";
             char fullName[30]; // Passenger::name is initialized to 30 chars
             cout << "Please enter the name of the passenger >> ";
             cin.getline(fullName, 30); 
@@ -192,13 +202,34 @@ void findPassengerInfo(Flight* currFlights, int numFlights)
         string strTicket(ticketID);
         size_t pos = strTicket.find("-");
 
-        // Assuming valid input (all-digits)
-        int fNumber = stoi(strTicket.substr(0, pos)); 
-        int seatNumber = stoi(strTicket.substr(pos+1));
+        try
+        {
+            int fNumber = stoi(strTicket.substr(0, pos)); 
+            int seatNumber = stoi(strTicket.substr(pos+1));
         
-        // Find Flight in Flights array
-        if (findFlight(currFlights, numFlights, fNumber, seatNumber, true))
-            return;
+            // Find Flight in Flights array
+            if (findFlight(currFlights, numFlights, fNumber, seatNumber, true))
+            {
+                // User decides when to return back to Main Menu
+                //char uInput[20] = "";
+                string uInput;
+                while (1)
+                {
+                    cout << "Enter 0 to return to Main Menu >> ";
+                    getline(cin, uInput);
+                    uInput.erase(remove(uInput.begin(), uInput.end(),' '), uInput.end());
+                    if (uInput == "0")
+                        break;
+                    cout << "Invalid option.\n";
+                }
+                return;
+            }
+        }
+        catch (...)
+        {
+            // Invalid input: Contains non-digits
+            // Continue below and print error msg
+        }
     }
 
     cout << "Invalid Ticket Number.\n\n";
@@ -215,7 +246,7 @@ void selectSeat(int yourFlightNum, Plane* yourPlane, const char* fullName)
     
     // First check if yourPlane is full
     if (capacity == numOccupied)
-        cout << "Unfortunately requested Flight is full.\n\n"; 
+        cout << "Unfortunately, the requested Flight is full.\n\n"; 
     else 
     {
         // Display Header and Plane Seating Visual

@@ -1,6 +1,6 @@
 /* 
  * Airline Reservation System Simulation
- * Spring 2020, C++
+ * Created in Spring 2020, C++
  */
 
 #include <iostream>
@@ -62,7 +62,7 @@ int main(int argc, char** argv)
                 selectFlight(flights, numFlights);
                 break;
             case 2:
-                findPassengerInfo(flights, numFlights); 
+                findPassengerInfo(flights, numFlights);
                 break;
             default: // Invalid input
                 break;
