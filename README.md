@@ -72,13 +72,15 @@ To look up their flight details, the user needs to provide their unique Ticket N
 
 
 ## Visual Demo
-This demo uses the provided ```flights.csv``` and ```passengers.dat``` files, both of which can be found in the /refs/ directory. 
+This demo uses the provided ```flights.csv``` and ```passengers.dat``` files from the /refs/ directory. 
+It also uses the "inPassenger.txt" and "inTicketCheck.txt" scripts from the /source_code/sampleScripts/ directory.
 
-It attempts to add two additional passengers into Flight #815 as shown below. After registering "Jane Doe," the entire first row becomes full. Subsequent passengers may  request a seat on a different row or flight number, or return to the Main Menu.
-
-| Initial State | Final State |
+| Program State | Description |
 | ----- | ----- |
-| ![alt text](https://github.com/jschhie/airline-reserv/blob/master/demo/flight_815_before.png?raw=true "Initial State") | ![alt text](https://github.com/jschhie/airline-reserv/blob/master/demo/flight_815_after.png?raw=true "Final State") |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Show%20Menu.png?raw=true "Main Menu") | Main Menu Display |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Current%20Flights%20Menu.png?raw=true "Flights Menu") | Current Flights Menu |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20Passenger.png?raw=true "Add Passenger") | Register "Rebecca Smith" as a new passenger to Flight #552. Here, Seat 8A was selected. Ticket Number generated: "552-42." | 
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | Check reservation details with given Ticket Number. This validates and confirms "Rebecca Smith"'s earlier registration. |
 
 
 ## Acknowledgments
