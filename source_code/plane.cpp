@@ -140,9 +140,11 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         reserved++;
 
         // Generate Unique Ticket Number
+        int numReps = 43;
+        cout << "\n" << string(numReps, '*');
         cout << "\nReservation Complete!\n";
-        cout << "Please save your Ticket Number: " << flightNumber << '-' << (offset + yourSeat) << "\n\n";
-
+        cout << "Please save your Ticket Number: " << flightNumber << '-' << (offset + yourSeat) << "\n";
+        cout << string(numReps, '*') << "\n\n";
     }
 
     return;
