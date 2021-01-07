@@ -6,8 +6,14 @@ using namespace std;
 /* Subfunctions */
 void printMenu()
 {
-    cout << "Flight Reservation Menu" << endl;
-    cout << "0. Exit\n1. Add Passenger " << endl;
+    int numReps = 43;
+    cout << string(numReps, '=') << endl;
+    string header = "Flight Reservation Menu";
+    int numSpaces = (numReps - header.size()) / 2;
+    cout << string(numSpaces, ' ') << header << endl;
+    cout << string(numReps, '-') << endl;
+    cout << "0. Exit & Save Data\n1. Add New Passenger\n2. Find Passenger Information" << endl;
+    cout << string(numReps, '=') << endl;
     cout << "\nYour Choice >> ";
 } // printMenu()
 
@@ -36,7 +42,7 @@ int checkChoice(const char* yourChoice)
                 break; 
             } // Reset flag, raise error
         } // Check each character and ignore whitespaces
-    } // Note: Available options are single digits (ie. values 0 or 1)
+    } // Note: Available options are single digits (ie. values 0, 1, or 2)
     
     if (idx == -1) return -1;
     // Otherwise, convert from char to integer value
@@ -56,9 +62,9 @@ int getChoice()
         printMenu();
         cin.getline(choice, 80);
         result = checkChoice(choice);
-        if (result == 0 || result == 1)
-            break; // Valid choices are 0 and 1
-        cout << "Choice must be either 0 or 1. Please try again.\n\n";
+        if (result >= 0 && result <= 2)
+            break; // Valid choices are 0, 1, and 2
+        cout << "Choice must be either 0, 1, or 2. Please try again.\n\n";
     } // while invalid choice received
     
     return result;
@@ -76,13 +82,16 @@ void showFlights(const Flight* currFlights, int numFlights)
     }
     
     // Otherwise, print out each Flight's number, origin, and destination
-    cout << "Flight#\t\tOrigin\t\tDestination" << endl;
-    cout << "------------------------------------------------" << endl;
-    
+    char border = '=';
+    int numReps = 43;
+    cout << string(numReps, border) << endl;
+    cout << "Flight#\t\tOrigin\t\tDestination\n";
+    cout << string(numReps, '-') << endl;
+     
     for (int i = 0; i < numFlights; i++)
         cout << currFlights[i];
     
-    cout << endl;
+    cout << string(numReps, border) << endl << endl;
     return;
 
 } // showFlights()
@@ -136,7 +145,7 @@ void selectFlight(Flight* currFlights, int numFlights)
 } // selectFlight()
 
 
-bool findFlight(Flight* currFlights, int numFlights, int target)
+bool findFlight(Flight* currFlights, int numFlights, int target, int seatChoice, bool readonly)
 {
     int flightNumber = 0;
     for (int i = 0; i < numFlights; i++)
@@ -144,18 +153,89 @@ bool findFlight(Flight* currFlights, int numFlights, int target)
         flightNumber = currFlights[i].getFlightNum();
         if (flightNumber == target)
         {
-            cout << "Flight Number #" << flightNumber << " is available.\n";
-            char fullName[80]; // Assumes 80 chars max
-            cout << "Please enter the name of the passenger >> ";
-            cin.ignore(); // Flush buffer to remove '\n' char
-            cin.getline(fullName, 80);
             Plane* matchingPlane = currFlights[i].getPlane();
+            if (readonly)
+            {
+                if (matchingPlane->checkSeat(seatChoice))
+                {
+                    cout << setw(16) << "Origin City: ";
+                    cout << currFlights[i].getOrigin() << endl;
+                    cout << setw(16) << "Destination: ";
+                    cout << currFlights[i].getDestination() << endl;
+                    cout << string(43, '=') << endl << endl;
+                    return true;
+                }
+                return false;
+            }
+
+            cout << "\nFlight Number #" << flightNumber << " is available.\n";
+            char fullName[30]; // Passenger::name is initialized to 30 chars
+            cout << "Please enter the name of the passenger >> ";
+            cin.getline(fullName, 30); 
             selectSeat(target, matchingPlane, fullName);
+            
             return true;
         }
     }
     return false;
 } // findFlight()
+
+
+void findPassengerInfo(Flight* currFlights, int numFlights)
+{
+    char ticketID[80] = "";
+    cout << "Enter Your Confirmation Ticket # >> ";
+    cin.getline(ticketID, 80); // To remove '\n' from buffer
+    
+    bool validFormat = false;
+    char* token = strchr(ticketID, '-');
+    if (token)
+    {
+        // Ensure only one '-' token present
+        char* otherToken = strrchr(ticketID, '-');
+        if ((token-ticketID+1) == (otherToken-ticketID+1))
+            validFormat = true;
+    } 
+    
+    if (validFormat)
+    {
+        string strTicket(ticketID);
+        size_t pos = strTicket.find("-");
+
+        try
+        {
+            int fNumber = stoi(strTicket.substr(0, pos)); 
+            int seatNumber = stoi(strTicket.substr(pos+1));
+        
+            // Find Flight in Flights array
+            if (findFlight(currFlights, numFlights, fNumber, seatNumber, true))
+            {
+                // User decides when to return back to Main Menu
+                //char uInput[20] = "";
+                string uInput;
+                while (1)
+                {
+                    cout << "Enter 0 to return to Main Menu >> ";
+                    getline(cin, uInput);
+                    uInput.erase(remove(uInput.begin(), uInput.end(),' '), uInput.end());
+                    if (uInput == "0")
+                        break;
+                    cout << "Invalid option.\n";
+                }
+                return;
+            }
+        }
+        catch (...)
+        {
+            // Invalid input: Contains non-digits
+            // Continue below and print error msg
+        }
+    }
+
+    cout << "Invalid Ticket Number.\n\n";
+    return;
+    
+} // findPassengerInfo()
 
 
 void selectSeat(int yourFlightNum, Plane* yourPlane, const char* fullName)
@@ -166,7 +246,7 @@ void selectSeat(int yourFlightNum, Plane* yourPlane, const char* fullName)
     
     // First check if yourPlane is full
     if (capacity == numOccupied)
-        cout << "Unfortunately requested Flight is full.\n\n"; 
+        cout << "Unfortunately, the requested Flight is full.\n\n"; 
     else 
     {
         // Display Header and Plane Seating Visual

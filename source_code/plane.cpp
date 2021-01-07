@@ -12,16 +12,35 @@
 
 using namespace std;
 
-
 Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
-    rows(numRows), width(numSeats), reserved(numRsrv ), flightNum(flightNumber)
+    rows(numRows), width(numSeats), reserved(numRsrv), flightNum(flightNumber)
 {
     // Create & initialize 2-D array of offsets
     int capacity = numRows * numSeats;
     passengers = new int [capacity];
     for (int i = 0; i < capacity; i++)
-        passengers[i] = -1;
+        passengers[i] = -1; // -1: Avaiable, unoccupied seat
 } // Plane() Constructor 2.0
+
+bool Plane::checkSeat(int seatIndex)
+{ 
+    int bytePos = passengers[seatIndex];
+    if (seatIndex < (rows * width) && bytePos != -1)
+    {
+        // Read matching Passenger object
+        ifstream is("../refs/passengers.dat", ios::in | ios::binary);
+        if (is.is_open())
+        {
+            Passenger passenger;
+            is.seekg(bytePos);
+            is.read((char*) &passenger, sizeof(Passenger));
+            cout << passenger << endl; 
+            is.close();
+            return true;
+        }
+    }
+    return false;
+} // checkSeat()
 
 int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
 
@@ -68,7 +87,8 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
 
         for(int c = 0; c < strlen(line); c++)
         {
-            if(iswspace(line[c])) continue;
+            if(iswspace(line[c])) 
+                continue;
             else if(isalpha(line[c]) && index == -1)
             {
                 index = c;
@@ -92,7 +112,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
     yourSeat = int(seatLabel) - int('A'); // Starts at index 0
     if (yourSeat >= width)
     {
-        cout << "Requested seat letter DNE on this flight.\n";
+        cout << "Requested seat letter does not exist for this flight.\n";
         return;
     }
 
@@ -102,12 +122,16 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         cout << "Requested Row, Seat: " << yourRow << ", " << seatLabel << " is already reserved.\n";
     else // Can add passenger to Plane
     {
+        // Generate Unique TicketID for user
+        cout << "\nReservation Complete. Confirmation Ticket #: " << flightNumber << '-' << (offset + yourSeat) << endl;
+        cout << "Please save your ticket number.\n\n";
+        
+        // Write new binary Passenger object
         fstream fout;
         fout.open("../refs/passengers.dat", ios::out | ios::app | ios::binary);
-        int pos = fout.tellg(); 
+        int pos = fout.tellg();
         passengers[offset + yourSeat] = pos;
         
-        // Write Passenger to file
         Passenger* passenger = new Passenger(flightNumber, yourRow, seatLabel, fullName);
         fout.write((char*) passenger, sizeof(Passenger));
 

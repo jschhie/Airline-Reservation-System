@@ -1,0 +1,52 @@
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+===========================================
+
+Your Choice >> 2
+===========================================
+Flight#		Origin		Destination
+-------------------------------------------
+815          Sacramento            Stockton
+583                Reno          Sacramento
+265                Reno         Los Angeles
+201                Reno       San Francisco
+552            Stockton                Reno
+===========================================
+
+Flight Number (Enter 0 to return to Main Menu) >> 552
+Flight Number #552 is available.
+Please enter the name of the passenger >> Smith,Rebecca 
+Row Number#  ABCDEF
+
+1            _X_XX_
+2            __X___
+3            XXXX__
+4            _X_X__
+5            XXXXX_
+6            XXXX_X
+7            _X_X__
+8            _X_X__
+
+X = reserved.
+(Enter 0 to return to Main Menu.)
+Please enter the row of the seat you wish to reserved >> 
+
+(Enter 0 to return to Main Menu.)
+Please enter the seat letter you wish to reserve on row #8 >> A
+
+Reservation Complete. Confirmation Ticket #: 552-42
+Please save your ticket number.
+
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+===========================================
+
+Your Choice >> 

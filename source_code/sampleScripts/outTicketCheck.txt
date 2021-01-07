@@ -1,0 +1,30 @@
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+===========================================
+
+Your Choice >> 2
+Enter Your Confirmation Ticket # >> 552-42
+===========================================
+        Flight Reservation Details
+-------------------------------------------
+Passenger Name: Smith,Rebecca
+ Flight Number: 552
+ Reserved Seat: 8A
+   Origin City: Stockton
+   Destination: Reno
+===========================================
+
+Enter 0 to return to Main Menu >> 0 
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+===========================================
+
+Your Choice >> 0

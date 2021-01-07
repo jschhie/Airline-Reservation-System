@@ -7,8 +7,7 @@
 
 using namespace std;
 
-
-Flight::Flight() : flightNum(-1)
+Flight::Flight() : flightNum(-1)//, flightIndex(-1) 
 {
     strcpy(origin, "None");
     strcpy(destination, "None");
@@ -57,9 +56,10 @@ istream& operator>> (istream& is, Flight& flightRef)
     // Parse Flight info
     is.getline(line, 80, ',');
     flightRef.flightNum = stoi(line);
-    is.getline(line, 80, ',');
+    // NOTE: Init origin and destination to 20 chars each
+    is.getline(line, 20, ',');
     strcpy(flightRef.origin, line);
-    is.getline(line, 80, ',');
+    is.getline(line, 20, ',');
     strcpy(flightRef.destination, line);
 
     // Get Plane info

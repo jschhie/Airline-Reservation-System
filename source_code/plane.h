@@ -15,6 +15,7 @@ class Plane
 public:
 
     Plane(int numRows, int numSeats, int numRsrv, int flightNumber);
+    bool checkSeat(int seatIndex);
     int getFlightNum() const;
     int getWidth() const;
     int getRows() const;
