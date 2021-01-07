@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Flight::Flight() : flightNum(-1)//, flightIndex(-1) 
+Flight::Flight() : flightNum(-1)
 {
     strcpy(origin, "None");
     strcpy(destination, "None");
@@ -16,9 +16,9 @@ Flight::Flight() : flightNum(-1)//, flightIndex(-1)
 
 Flight::~Flight()
 {
-    if(plane) 
+    if (plane) 
         delete plane;
-    else 
+    else
         cout << "~Flight() Error: Plane DNE." << endl;
 } // ~Flight() Deconstructor
 
@@ -56,7 +56,8 @@ istream& operator>> (istream& is, Flight& flightRef)
     // Parse Flight info
     is.getline(line, 80, ',');
     flightRef.flightNum = stoi(line);
-    // NOTE: Init origin and destination to 20 chars each
+
+    // NOTE: Flight::origin & destination initialized to 20 chars
     is.getline(line, 20, ',');
     strcpy(flightRef.origin, line);
     is.getline(line, 20, ',');

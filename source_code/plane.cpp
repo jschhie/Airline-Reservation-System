@@ -12,15 +12,18 @@
 
 using namespace std;
 
+
 Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
     rows(numRows), width(numSeats), reserved(numRsrv), flightNum(flightNumber)
 {
     // Create & initialize 2-D array of offsets
     int capacity = numRows * numSeats;
     passengers = new int [capacity];
+    // Let -1: Avaiable, unoccupied seat
     for (int i = 0; i < capacity; i++)
-        passengers[i] = -1; // -1: Avaiable, unoccupied seat
+        passengers[i] = -1; 
 } // Plane() Constructor 2.0
+
 
 bool Plane::checkSeat(int seatIndex)
 { 
@@ -67,9 +70,9 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         cin.getline(line, 80);
         yourRow = checkChoice(line);
 
-        if(yourRow > 0 && yourRow <= rows)
+        if (yourRow > 0 && yourRow <= rows)
             break;
-        else if(yourRow == 0) 
+        else if (yourRow == 0) 
             return;
         else
         {
@@ -87,23 +90,23 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
 
         for(int c = 0; c < strlen(line); c++)
         {
-            if(iswspace(line[c])) 
+            if (iswspace(line[c])) 
                 continue;
-            else if(isalpha(line[c]) && index == -1)
+            else if (isalpha(line[c]) && index == -1)
             {
                 index = c;
                 continue;
             }
             // Otherwise, invalid char seen
             index = -1;
-            if(line[c] == '0')
+            if (line[c] == '0')
                 return; // Return to Main Menu
             break;
         } // Check each character, ignore whitespace
 
-        // Outside for loop
-        if(index != -1)
-            break; // Exit while loop
+        // Outside for loop: Conditionally exit while loop
+        if (index != -1)
+            break;
         cout << "Invalid seat request. Please try again.\n";
     
     } while(1);
@@ -121,11 +124,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
     if (passengers[offset + yourSeat] != -1)
         cout << "Requested Row, Seat: " << yourRow << ", " << seatLabel << " is already reserved.\n";
     else // Can add passenger to Plane
-    {
-        // Generate Unique TicketID for user
-        cout << "\nReservation Complete. Confirmation Ticket #: " << flightNumber << '-' << (offset + yourSeat) << endl;
-        cout << "Please save your ticket number.\n\n";
-        
+    {        
         // Write new binary Passenger object
         fstream fout;
         fout.open("../refs/passengers.dat", ios::out | ios::app | ios::binary);
@@ -139,6 +138,11 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         delete passenger;
         fout.close();
         reserved++;
+
+        // Generate Unique Ticket Number
+        cout << "\nReservation Complete!\n";
+        cout << "Please save your Ticket Number: " << flightNumber << '-' << (offset + yourSeat) << "\n\n";
+
     }
 
     return;

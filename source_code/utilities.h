@@ -22,6 +22,7 @@ void showFlights(const Flight* currFlights, int numFlights);
 
 void selectFlight(Flight* currFlights, int numFlights);
 
+// NOTE: findFlight has two optional params: seatChoice, readonly 
 bool findFlight(Flight* currFlights, int numFlights, int target, int seatChoice=-1, bool readonly=false);
 
 void findPassengerInfo(Flight* currFlights, int numFlights);
