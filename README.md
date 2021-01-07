@@ -1,5 +1,5 @@
 # Airline Reservation System
-> Created in Spring 2020 as an independent project. Written in C++.
+> Created in Spring 2020 as an independent project (ongoing). Written in C++.
 
 
 ## Project Overview
@@ -8,6 +8,7 @@ This program simulates an airline reservation system.
 ### Features:
 - Adds new passengers while detecting duplicate requests
 - Maintains various seating capacities across multiple flights
+- Allows user to look up their reservation details
 
 A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#visual-demo).
 
@@ -19,6 +20,7 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
+  * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
 * [Acknowledgments](https://github.com/jschhie/airline-reserv/#acknowledgments)
 
@@ -50,7 +52,7 @@ You can supply an optional script containing your choices/responses with the fol
 
 
 ## Program Usage
-The current implementation offers users two choices: (0) Exiting the program, and (1) Adding a passenger.
+The current implementation offers users the following choices: (0) Exiting and saving the program, (1) Adding a passenger, and (2) Looking up reservation details. 
 
 
 #### Choice 0. Exiting the Program
@@ -60,17 +62,25 @@ This program does not generate any new files. Instead, it updates/appends to the
 #### Choice 1. Adding a New Passenger
 Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied, or respective plane capacity has not been reached yet). 
 
+Once the user has successfully booked their reservation, the program will generate a unique Ticket Number, which can later be used for looking up their flight details. 
+
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
 
 
+#### Choice 2. Looking Up Reservation Details
+To look up their flight details, the user needs to provide their unique Ticket Number that was generated after booking their flight. The program will then display all relevant information, if a valid Ticket Number is given. 
+
+
 ## Visual Demo
-This demo uses the provided ```flights.csv``` and ```passengers.dat``` files, both of which can be found in the /refs/ directory. 
+This demonstation uses the default ```flights.csv``` and ```passengers.dat``` files from the /refs/ directory. 
+It also uses the ```inPassenger.txt``` and then the ```inTicketCheck.txt``` scripts from the /source_code/sample_scripts/ directory.
 
-It attempts to add two additional passengers into Flight #815 as shown below. After registering "Jane Doe," the entire first row becomes full. Subsequent passengers may  request a seat on a different row or flight number, or return to the Main Menu.
-
-| Initial State | Final State |
-| ----- | ----- |
-| ![alt text](https://github.com/jschhie/airline-reserv/blob/master/demo/flight_815_before.png?raw=true "Initial State") | ![alt text](https://github.com/jschhie/airline-reserv/blob/master/demo/flight_815_after.png?raw=true "Final State") |
+| Program State | Description |
+| ----- | :-----: |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Show%20Menu.png?raw=true "Main Menu") | Main Menu Display |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Current%20Flights%20Menu.png?raw=true "Flights Menu") | Current Flights Menu. This can be customizable if user supplies an input .CSV file. |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20Passenger.png?raw=true "Add Passenger") | Register ```Rebecca Smith``` as a new passenger to ```Flight #552```. Here, ```Seat 8A``` was selected. Ticket Number generated: ```552-42.``` | 
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | Check reservation details with given Ticket Number. This validates and confirms ```Rebecca Smith```'s earlier registration. |
 
 
 ## Acknowledgments
