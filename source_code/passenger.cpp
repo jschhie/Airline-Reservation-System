@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <string>
 #include "passenger.h"
 
@@ -18,3 +19,23 @@ int Passenger::getSeatRow() const { return seatRow; } // getSeatRow()
 
 
 int Passenger::getSeatLabel() const { return (seatLabel - 'A'); } // getSeatLabel()
+
+
+const char* Passenger::getName() const { return name; } // getName()
+
+ostream& operator<< (ostream& os, const Passenger& passRef)
+{
+    cout << "\n\t\tRESERVATION DETAILS" << endl;
+    cout << "------------------------------------------------" << endl;
+
+    cout << "Passenger Name: ";
+    cout << passRef.getName() << endl;
+    cout << setw(16) << "Flight Number: " << passRef.getFlightNum() << endl;
+
+    int index = passRef.getSeatLabel() + 1;
+    char seatChar = static_cast<char>('A' - 1 + index);
+    cout << setw(16) << "Reserved Seat: ";
+    cout << passRef.getSeatRow() << seatChar;
+    
+    return os;
+}

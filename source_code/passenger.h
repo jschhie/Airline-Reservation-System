@@ -1,6 +1,10 @@
 #ifndef PASSENGER_H
 #define PASSENGER_H
 
+#include <iostream>
+
+using namespace std;
+
 class Passenger 
 {
 
@@ -14,7 +18,8 @@ public:
     int getFlightNum() const;
     int getSeatRow() const;
     int getSeatLabel() const;
-
+    const char* getName() const;
+    friend ostream& operator<< (ostream& os, const Passenger& passRef);
 }; // Passenger Class
 
 #endif /* PASSENGER_H */

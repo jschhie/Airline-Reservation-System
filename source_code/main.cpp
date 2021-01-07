@@ -41,8 +41,10 @@ int main(int argc, char** argv)
     // Program initialization
     int numFlights = stoi(firstLine);
     Flight* flights = new Flight[numFlights];
-    for(int i = 0; i < numFlights; i++)
-        fin >> flights[i]; 
+
+    for(int idx = 0; idx < numFlights; idx++) {
+        fin >> flights[idx];
+    }
     
     // Done reading from given file
     fin.close();
@@ -58,6 +60,9 @@ int main(int argc, char** argv)
             case 1: 
                 showFlights(flights, numFlights);
                 selectFlight(flights, numFlights);
+                break;
+            case 2:
+                findPassengerInfo(flights, numFlights); 
                 break;
             default: // Invalid input
                 break;

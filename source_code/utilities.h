@@ -22,7 +22,9 @@ void showFlights(const Flight* currFlights, int numFlights);
 
 void selectFlight(Flight* currFlights, int numFlights);
 
-bool findFlight(Flight* currFlights, int numFlights, int target);
+bool findFlight(Flight* currFlights, int numFlights, int target, int seatChoice=-1, bool readonly=false);
+
+void findPassengerInfo(Flight* currFlights, int numFlights);
 
 void selectSeat(int yourFlightNum, Plane* yourPlane, const char* fullName);
 

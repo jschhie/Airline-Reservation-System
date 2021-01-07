@@ -12,9 +12,8 @@
 
 using namespace std;
 
-
 Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
-    rows(numRows), width(numSeats), reserved(numRsrv ), flightNum(flightNumber)
+    rows(numRows), width(numSeats), reserved(numRsrv), flightNum(flightNumber)
 {
     // Create & initialize 2-D array of offsets
     int capacity = numRows * numSeats;
@@ -22,6 +21,26 @@ Plane::Plane(int numRows, int numSeats, int numRsrv, int flightNumber) :
     for (int i = 0; i < capacity; i++)
         passengers[i] = -1;
 } // Plane() Constructor 2.0
+
+bool Plane::checkSeat(int seatIndex)
+{ 
+    int bytePos = passengers[seatIndex];
+    if (seatIndex < (rows * width) && bytePos != -1)
+    {
+        // Read matching Passenger object
+        ifstream is("../refs/passengers.dat", ios::in | ios::binary);
+        if (is.is_open())
+        {
+            Passenger passenger;
+            is.seekg(bytePos);
+            is.read((char*) &passenger, sizeof(Passenger));
+            cout << passenger << endl; 
+            is.close();
+            return true;
+        }
+    }
+    return false;
+} // checkSeat()
 
 int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
 
@@ -102,12 +121,16 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         cout << "Requested Row, Seat: " << yourRow << ", " << seatLabel << " is already reserved.\n";
     else // Can add passenger to Plane
     {
+        // Generate Unique TicketID for user
+        cout << "\nReservation Complete. Confirmation Ticket #: " << flightNumber << '-' << (offset + yourSeat) << endl;
+        cout << "Please save your ticket number!\n\n";
+        
+        // Write new binary Passenger object
         fstream fout;
         fout.open("../refs/passengers.dat", ios::out | ios::app | ios::binary);
-        int pos = fout.tellg(); 
+        int pos = fout.tellg();
         passengers[offset + yourSeat] = pos;
         
-        // Write Passenger to file
         Passenger* passenger = new Passenger(flightNumber, yourRow, seatLabel, fullName);
         fout.write((char*) passenger, sizeof(Passenger));
 

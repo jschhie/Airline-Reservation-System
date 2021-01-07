@@ -7,8 +7,7 @@
 
 using namespace std;
 
-
-Flight::Flight() : flightNum(-1)
+Flight::Flight() : flightNum(-1)//, flightIndex(-1) 
 {
     strcpy(origin, "None");
     strcpy(destination, "None");
