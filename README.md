@@ -73,7 +73,7 @@ To look up their flight details, the user needs to provide their unique Ticket N
 
 ## Visual Demo
 This demo uses the provided ```flights.csv``` and ```passengers.dat``` files from the /refs/ directory. 
-It also uses the "inPassenger.txt" and "inTicketCheck.txt" scripts from the /source_code/sample_scripts/ directory.
+It also uses the ```inPassenger.txt``` and ```inTicketCheck.txt``` scripts from the /source_code/sample_scripts/ directory.
 
 | Program State | Description |
 | ----- | :-----: |
