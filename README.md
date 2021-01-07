@@ -8,7 +8,7 @@ This program simulates an airline reservation system.
 ### Features:
 - Adds new passengers while detecting duplicate requests
 - Maintains various seating capacities across multiple flights
-- Allows for reservation lookups
+- Allows user to lookup their reservation details
 
 A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#visual-demo).
 
