@@ -22,7 +22,6 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
   * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
-* [Acknowledgments](https://github.com/jschhie/airline-reserv/#acknowledgments)
 
 
 ## How to Run the Program  
@@ -84,7 +83,3 @@ It also uses the ```inPassenger.txt``` and then the ```inTicketCheck.txt``` scri
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Current%20Flights%20Menu.png?raw=true "Flights Menu") | Current Flights Menu. This can be customizable if user supplies an input .CSV file. |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20Passenger.png?raw=true "Add Passenger") | Register ```Rebecca Smith``` as a new passenger to ```Flight #552```. Here, ```Seat 8A``` was selected. Ticket Number generated: ```552-42.``` | 
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | Check reservation details with given Ticket Number. This validates and confirms ```Rebecca Smith```'s earlier registration. |
-
-
-## Acknowledgments
-My former professor created some of the sample input files found in the /refs/ directory (i.e., ```flights.csv```, ```reservations.txt```, and ```passengers2.dat```). The source code and README were both written by myself. 
