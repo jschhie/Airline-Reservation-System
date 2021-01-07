@@ -19,7 +19,7 @@ using namespace std;
 int main(int argc, char** argv)
 {
 
-    if(argc != 2)
+    if (argc != 2)
     {
         cout << "Expected Arguments: ./airline.out <inputFileName> \n";
         return 0;
@@ -30,7 +30,7 @@ int main(int argc, char** argv)
     ifstream fin;
     fin.open(argv[1]);
 
-    if(!fin)
+    if (!fin)
     {
         cout << "Failed to open " << argv[1] << endl;
         return 0;
@@ -42,7 +42,8 @@ int main(int argc, char** argv)
     int numFlights = stoi(firstLine);
     Flight* flights = new Flight[numFlights];
 
-    for(int idx = 0; idx < numFlights; idx++) {
+    for (int idx = 0; idx < numFlights; idx++)
+    {
         fin >> flights[idx];
     }
     

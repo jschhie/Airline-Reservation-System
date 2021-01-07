@@ -14,7 +14,7 @@ class Passenger
 public:
     
     Passenger(); // Default constructor
-    Passenger(short flightNumber, short row, char label, const char* newName); // With args
+    Passenger(short flightNumber, short row, char label, const char* newName); // With params
     int getFlightNum() const;
     int getSeatRow() const;
     int getSeatLabel() const;

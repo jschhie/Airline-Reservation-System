@@ -22,7 +22,6 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
   * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
-* [Acknowledgments](https://github.com/jschhie/airline-reserv/#acknowledgments)
 
 
 ## How to Run the Program  
@@ -30,7 +29,7 @@ For convenience, the corresponding ```Makefile``` has been provided. The user sh
 
 Next, this program expects two command line arguments as follows: ```./airline.out filepath/csv_file.csv```. The CSV file is to contain information for each flight instance. The expected CSV format is detailed in the [next section](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting).
 
-Lastly, a sample ```flights.csv``` and a ```passengers.dat``` file can be found in the /refs/ directory. The latter is a binary file with sample flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In this case, each flight would be initialized with zero passengers. 
+Lastly, a sample ```flights.csv``` and a ```passengers.dat``` file can be found in the /refs/ directory. The latter is a binary file with sample flight reservations prior to runtime. The user may also replace this with an empty file to simulate complete vacancy for each flight. In that case, each flight would be initialized with zero passengers. 
 
 
 #### Input CSV File Formatting
@@ -44,8 +43,11 @@ The table below summarizes and exemplifies the formatting.
 | ...| ...| ...|...|
 | *k*+1 | Last Flight's flight number, origin, destination, total rows, total seats per row | ```512, Davis, Reno, 4, 4 ```| The last flight has a seating capacity of 16 (i.e., 4 rows * 4 seats per row) | 
 
+<details><summary><b>Show Details</b></summary>
+ 
 > REMARK: For the sake of readability, the values listed have been separated by a comma followed by a single whitespace. The actual CSV format requires that they are separated by just a comma. 
 
+</details>
 
 #### Supplying an Input Script
 You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out flights.csv```.
@@ -56,7 +58,7 @@ The current implementation offers users the following choices: (0) Exiting and s
 
 
 #### Choice 0. Exiting the Program
-This program does not generate any new files. Instead, it updates/appends to the said ```passengers.dat``` file. The file's contents reflect the changes made (if any) to the airline reservation system during runtime. 
+This program does not generate any new files. Instead, it modifies the said ```passengers.dat``` file. The file's contents reflect the changes made (if any) to the airline reservation system during runtime. 
 
 
 #### Choice 1. Adding a New Passenger
@@ -81,7 +83,3 @@ It also uses the ```inPassenger.txt``` and then the ```inTicketCheck.txt``` scri
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Current%20Flights%20Menu.png?raw=true "Flights Menu") | Current Flights Menu. This can be customizable if user supplies an input .CSV file. |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20Passenger.png?raw=true "Add Passenger") | Register ```Rebecca Smith``` as a new passenger to ```Flight #552```. Here, ```Seat 8A``` was selected. Ticket Number generated: ```552-42.``` | 
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | Check reservation details with given Ticket Number. This validates and confirms ```Rebecca Smith```'s earlier registration. |
-
-
-## Acknowledgments
-My former professor created some of the sample input files found in the /refs/ directory (i.e., ```flights.csv```, ```reservations.txt```, and ```passengers2.dat```). The source code and README were both written by myself. 

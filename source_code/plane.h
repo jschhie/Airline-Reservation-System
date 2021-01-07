@@ -10,7 +10,7 @@ class Plane
 {
 
     int rows, width, reserved, flightNum;
-    int* passengers; // Array of offsets in binary file
+    int* passengers; // Array of offsets in binary file ('../refs/passengers.dat')
 
 public:
 

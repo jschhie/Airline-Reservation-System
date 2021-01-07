@@ -25,6 +25,7 @@ const char* Passenger::getName() const { return name; } // getName()
 
 ostream& operator<< (ostream& os, const Passenger& passRef)
 {
+    // Center header line and add borders
     int numReps = 43;
     cout << string(numReps, '=') << endl;
     string header = "Flight Reservation Details";
@@ -35,6 +36,7 @@ ostream& operator<< (ostream& os, const Passenger& passRef)
     cout << "Passenger Name: " << passRef.getName() << endl;
     cout << setw(16) << "Flight Number: " << passRef.getFlightNum() << endl;
 
+    // Convert seat label from digit to alphabet letter
     int index = passRef.getSeatLabel() + 1;
     char seatChar = static_cast<char>('A' - 1 + index);
     cout << setw(16) << "Reserved Seat: " << passRef.getSeatRow() << seatChar;
