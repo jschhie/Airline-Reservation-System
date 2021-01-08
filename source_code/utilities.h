@@ -12,6 +12,7 @@
 using namespace std;
 
 /* Foward Declarations */
+
 void printMenu();
 
 int checkChoice(const char* yourChoice);
@@ -22,16 +23,18 @@ void showFlights(const Flight* currFlights, int numFlights);
 
 void selectFlight(Flight* currFlights, int numFlights);
 
-// NOTE: findFlight() has two optional params: seatChoice, readonly 
+// NOTE: findFlight() has two optional params: seatChoice & readonly 
 Plane* findFlight(Flight* currFlights, int numFlights,
                 int target, int seatChoice=-1, bool readonly=false);
 
-// NOTE: findPassengerInfo() is called when cancelling a reservation (cancelMe=true, in that case)
+// NOTE: findPassengerInfo() is called when cancelling a reservation 
+// (cancelMe=true, in that case)
 bool findPassengerInfo(Flight* currFlights, int numFlights, bool cancelMe=false);
 
-void selectSeat(int yourFlightNum, Plane* yourPlane); //, const char* fullName);
+void selectSeat(int yourFlightNum, Plane* yourPlane);
 
-// NOTE: confirmCancellation() returns true: Cancel, false: Quit Cancellation
+// NOTE: confirmCancellation() returns true: Cancel or
+// false: Quit Cancellation
 bool confirmCancellation(); 
 
 #endif /* UTILITIES_H */
