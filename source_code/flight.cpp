@@ -70,6 +70,7 @@ istream& operator>> (istream& is, Flight& flightRef)
     numSeats = stoi(line);
     
     // Create Plane and update Plane::passengers
+    // NOTE: reserved = 0 by default per Plane
     flightRef.plane = new Plane(numRows, numSeats, 0, flightRef.getFlightNum());
     is >> *flightRef.plane;
 

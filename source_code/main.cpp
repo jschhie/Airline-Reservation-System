@@ -63,9 +63,18 @@ int main(int argc, char** argv)
                 selectFlight(flights, numFlights);
                 break;
             case 2:
+                // Check if valid Ticket Number given
                 findPassengerInfo(flights, numFlights);
                 break;
-            default: // Invalid input
+            case 3:
+            {
+                // NOTE: cancelMe flag is set to true
+                // Check Ticket Number and confirm cancellation
+                findPassengerInfo(flights, numFlights, true);
+                break;
+            }
+            default: 
+                // Invalid input
                 break;
         }
         // Get next choice
