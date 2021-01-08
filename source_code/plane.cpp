@@ -31,7 +31,7 @@ bool Plane::checkSeat(int seatIndex)
     if (seatIndex < (rows * width) && bytePos != -1)
     {
         // Read matching Passenger object
-        ifstream is("../refs/passengers.dat", ios::in | ios::binary);
+        ifstream is("../refs/passengers.dat", ios::in | ios::binary); // NOTE: ios::in needed for seekg()
         if (is.is_open())
         {
             Passenger passenger;
@@ -130,14 +130,14 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         fout.open("../refs/passengers.dat", ios::out | ios::app | ios::binary);
         int pos = fout.tellg();
         passengers[offset + yourSeat] = pos;
-        
+
         Passenger* passenger = new Passenger(flightNumber, yourRow, seatLabel, fullName);
         fout.write((char*) passenger, sizeof(Passenger));
 
         // Clean up & update total reservations
         delete passenger;
         fout.close();
-        reserved++;
+        reserved += 1;
 
         // Generate Unique Ticket Number
         int numReps = 43;
@@ -150,6 +150,30 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
     return;
 
 } // addPassenger() 2.0
+
+
+void Plane::removePassenger(int seatChoice)
+{
+    int bytePos = passengers[seatChoice];
+    passengers[seatChoice] = -1; 
+
+    // Writeback to file: Invalidate Passenger
+    fstream fout("../refs/passengers.dat", ios::out | ios::in | ios::binary); // ios::in needed for seekg() 
+    if (fout.is_open())
+    {
+        // Invalidate and overwrite Passenger data 
+        Passenger passenger; // Default constructor: flightNum = -1
+        fout.seekg(bytePos);
+        fout.write((char*) &passenger, sizeof(Passenger));
+        fout.close();
+        reserved -= 1;
+        // Inform user of status
+        int numReps = 43;
+        cout << "\n" << string(numReps, '*');
+        cout << "\nCancellation Complete!\nReturning to Main Menu.\n";
+        cout << string(numReps, '*') << "\n\n";
+    }
+}
 
 
 Plane::~Plane()

@@ -1,0 +1,38 @@
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+3. Cancel Reservation
+===========================================
+
+Your Choice >> 3
+Enter Your Confirmation Ticket # >> 552-42
+===========================================
+        Flight Reservation Details
+-------------------------------------------
+Passenger Name: Smith,Rebecca
+ Flight Number: 552
+ Reserved Seat: 8A
+   Origin City: Stockton
+   Destination: Reno
+===========================================
+
+Are you sure you want to cancel this reservation? (Y/N) >> Yes
+
+*******************************************
+Cancellation Complete!
+Returning to Main Menu.
+*******************************************
+
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+3. Cancel Reservation
+===========================================
+
+Your Choice >> 0 

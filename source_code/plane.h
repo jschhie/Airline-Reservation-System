@@ -9,7 +9,7 @@ using namespace std;
 class Plane
 {
 
-    int rows, width, reserved, flightNum;
+    int rows, width, reserved, flightNum; // NOTE: Plane capacity = rows * width
     int* passengers; // Array of offsets in binary file ('../refs/passengers.dat')
 
 public:
@@ -21,6 +21,7 @@ public:
     int getRows() const;
     int getReservations() const;
     void addPassenger(int flightNumber, const char* fullName);
+    void removePassenger(int seatChoice);
     ~Plane();
     friend istream& operator>> (istream& is, Plane& planeRef); 
     friend ostream& operator<< (ostream& os, const Plane& planeRef);

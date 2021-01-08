@@ -1,0 +1,10 @@
+===========================================
+          Flight Reservation Menu
+-------------------------------------------
+0. Exit & Save Data
+1. Add New Passenger
+2. Find Passenger Information
+3. Cancel Reservation
+===========================================
+
+Your Choice >> 
