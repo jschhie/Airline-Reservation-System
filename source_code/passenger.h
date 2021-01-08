@@ -20,6 +20,7 @@ public:
     int getSeatLabel() const;
     const char* getName() const;
     friend ostream& operator<< (ostream& os, const Passenger& passRef);
+
 }; // Passenger Class
 
 #endif /* PASSENGER_H */
