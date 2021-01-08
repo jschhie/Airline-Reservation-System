@@ -272,7 +272,7 @@ void selectSeat(int yourFlightNum, Plane* yourPlane)
 
 bool confirmCancellation()
 {
-    cout << "Are you sure you want to cancel this reservation? (Y/N) >> ";
+    cout << "Continue to cancel this reservation? (Y/N) >> ";
     string uInput;
     getline(cin, uInput);
     
