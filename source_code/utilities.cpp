@@ -1,10 +1,11 @@
 #include <algorithm> // ::transform
+
 #include "utilities.h"
 
 using namespace std;
 
-
 /* Subfunctions */
+
 void printMenu()
 {
     // Center header line and add borders
@@ -24,7 +25,6 @@ void printMenu()
 
 int checkChoice(const char* yourChoice)
 {
-
     int length = strlen(yourChoice), idx = -1;
     if (length) 
     {
@@ -54,13 +54,11 @@ int checkChoice(const char* yourChoice)
     else
         // Otherwise, convert from char to integer value
         return (atoi(&yourChoice[idx]));
-
 } // checkChoice()
 
 
 int getChoice()
 {
-
     char choice[80];
     int result = 0;
 
@@ -73,9 +71,7 @@ int getChoice()
             break; // Valid choices are 0 through 3
         cout << "Choice must be between 0 and 3. Please try again.\n\n";
     } // while invalid choice received
-    
     return result;
-
 } // getChoice()
 
 
@@ -100,7 +96,6 @@ void showFlights(const Flight* currFlights, int numFlights)
         cout << currFlights[i];
     cout << string(numReps, border) << endl << endl;
     return;
-
 } // showFlights()
 
 
@@ -151,7 +146,6 @@ void selectFlight(Flight* currFlights, int numFlights)
         cout << "Please try again.\n\n";
 
     } while(!validNum);
-
     return;
 } // selectFlight()
 
@@ -250,13 +244,11 @@ bool findPassengerInfo(Flight* currFlights, int numFlights, bool cancelMe)
     }
     cout << "Invalid Ticket Number.\n\n";
     return false;
-    
 } // findPassengerInfo()
 
 
 void selectSeat(int yourFlightNum, Plane* yourPlane)
 {
-
     int capacity = yourPlane->getWidth() * yourPlane->getRows();
     int numOccupied = yourPlane->getReservations();
     
@@ -275,7 +267,6 @@ void selectSeat(int yourFlightNum, Plane* yourPlane)
         cout << *yourPlane;
         yourPlane->addPassenger(yourFlightNum, fullName);
     }
-
 } // selectSeat()
 
 
@@ -298,5 +289,4 @@ bool confirmCancellation()
     // None, No, or Other choice specified
     cout << "Cancellation stopped. Returning to Main Menu. \n\n";
     return false; 
-
 } // confirmCancellation()
