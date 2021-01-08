@@ -18,7 +18,7 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
   * [Input CSV File Formatting](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting)
   * [Supplying an Input Script](https://github.com/jschhie/airline-reserv/#supplying-an-input-script)
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
-  * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
+  * [Exiting and Saving Changes](https://github.com/jschhie/airline-reserv/#choice-0-exiting-and-saving)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
   * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
   * [Cancel Flight Booking](https://github.com/jschhie/airline-reserv/#choice-3-cancelling-a-reservation)
@@ -58,7 +58,7 @@ You can supply an optional script containing your choices/responses with the fol
 The current implementation offers users the following choices: (0) Exiting and saving the program, (1) Adding a passenger, and (2) Looking up reservation details, and (3) Cancelling a reservation. 
 
 
-#### Choice 0. Exiting the Program
+#### Choice 0. Exiting and Saving
 This program does not generate any new files. Instead, it modifies the said ```passengers.dat``` file. The file's contents reflect the changes made (if any) to the airline reservation system during runtime. 
 
 
