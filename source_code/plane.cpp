@@ -31,7 +31,8 @@ bool Plane::checkSeat(int seatIndex)
     if (seatIndex < (rows * width) && bytePos != -1)
     {
         // Read matching Passenger object
-        ifstream is("../refs/passengers.dat", ios::in | ios::binary); // NOTE: ios::in needed for seekg()
+        ifstream is("../refs/passengers.dat", ios::in | ios::binary); 
+        // NOTE: ios::in needed for seekg()
         if (is.is_open())
         {
             Passenger passenger;
@@ -44,6 +45,7 @@ bool Plane::checkSeat(int seatIndex)
     }
     return false;
 } // checkSeat()
+
 
 int Plane::getFlightNum() const { return flightNum; } // getFlightNum()
 
@@ -139,7 +141,7 @@ void Plane::addPassenger(int flightNumber, const char* fullName)
         fout.close();
         reserved += 1;
 
-        // Generate Unique Ticket Number
+        // Generate unique Ticket Number for passenger
         int numReps = 43;
         cout << "\n" << string(numReps, '*');
         cout << "\nReservation Complete!\n";
@@ -158,7 +160,8 @@ void Plane::removePassenger(int seatChoice)
     passengers[seatChoice] = -1; 
 
     // Writeback to file: Invalidate Passenger
-    fstream fout("../refs/passengers.dat", ios::out | ios::in | ios::binary); // ios::in needed for seekg() 
+    fstream fout("../refs/passengers.dat", ios::out | ios::in | ios::binary); 
+    // ios::in needed for seekg() 
     if (fout.is_open())
     {
         // Invalidate and overwrite Passenger data 
@@ -204,7 +207,7 @@ istream& operator>> (istream& is, Plane& planeRef)
         fileSize = inFile.tellg();
         inFile.seekg(0, inFile.beg);
 
-        // While looping, need to compare with flightNum
+        // While looping, compare each passenger's flightNum
         int currFlightNum = planeRef.getFlightNum();
         while (offset < fileSize)
         {
