@@ -21,7 +21,7 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
   * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
-  * [Cancel Booking](https://github.com/jschhie/airline-reserv/#choice-3-cancelling-a-reservation)
+  * [Cancel Flight Booking](https://github.com/jschhie/airline-reserv/#choice-3-cancelling-a-reservation)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
 
 
@@ -72,6 +72,7 @@ During these series of interactions, the user can also return back to the Main M
 
 #### Choice 2. Looking Up Reservation Details
 To look up their flight details, the user needs to provide their unique Ticket Number that was generated after booking their flight. The program will then display all relevant information, if a valid Ticket Number is given. 
+
 
 #### Choice 3. Cancelling a Reservation
 To cancel an existing reservation, the user needs to provide the corresponding Ticket Number. The program will immediately display all the relevant information and then ask the user to confirm the cancellation. 
