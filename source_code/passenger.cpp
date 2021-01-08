@@ -1,5 +1,6 @@
 #include <iomanip>
 #include <string>
+
 #include "passenger.h"
 
 Passenger::Passenger(): flightNum(-1 /* -1: Passenger DNE */) {} // Passenger() Empty Constructor
