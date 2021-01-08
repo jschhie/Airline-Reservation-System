@@ -65,7 +65,7 @@ This program does not generate any new files. Instead, it modifies the said ```p
 #### Choice 1. Adding a New Passenger
 Upon request, the program will display all flights, where each one is identified by their flight number. Based on the available flights, the user should provide a flight number and the passenger's name. The reservation system will then prompt the user for a valid seating request. Note that passengers are added to the flight if the requested seat is available (i.e. not already occupied, or respective plane capacity has not been reached yet). 
 
-Once the user has successfully booked their reservation, the program will generate a unique Ticket Number, which can later be used for looking up their flight details (Choice 2), or even cancel their booking in the future (Choice 3). 
+Once the user has successfully booked their reservation, the program will generate a unique Ticket Number, which can later be used for looking up their flight details (Choice 2), or even cancelling their flight booking in the future (Choice 3). 
 
 During these series of interactions, the user can also return back to the Main Menu by entering ```0```.
 
