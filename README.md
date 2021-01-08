@@ -8,7 +8,7 @@ This program simulates an airline reservation system.
 ### Features:
 - Adds new passengers while detecting duplicate requests
 - Maintains various seating capacities across multiple flights
-- Allows user to look up their reservation details
+- Allows user to look up their booking details and optionally cancel their reservations later
 
 A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#visual-demo).
 
@@ -21,6 +21,7 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
   * [Exiting the Program](https://github.com/jschhie/airline-reserv/#choice-0-exiting-the-program)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
   * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#choice-2-looking-up-reservation-details)
+  * [Cancel Booking](https://github.com/jschhie/airline-reserv/#choice-3-cancelling-a-reservation)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
 
 
@@ -54,7 +55,7 @@ You can supply an optional script containing your choices/responses with the fol
 
 
 ## Program Usage
-The current implementation offers users the following choices: (0) Exiting and saving the program, (1) Adding a passenger, and (2) Looking up reservation details. 
+The current implementation offers users the following choices: (0) Exiting and saving the program, (1) Adding a passenger, and (2) Looking up reservation details, and (3) Cancelling a reservation. 
 
 
 #### Choice 0. Exiting the Program
@@ -72,6 +73,9 @@ During these series of interactions, the user can also return back to the Main M
 #### Choice 2. Looking Up Reservation Details
 To look up their flight details, the user needs to provide their unique Ticket Number that was generated after booking their flight. The program will then display all relevant information, if a valid Ticket Number is given. 
 
+#### Choice 3. Cancelling a Reservation
+To cancel an existing reservation, the user needs to provide the corresponding Ticket Number. The program will immediately display all the relevant information and then ask the user to confirm the cancellation. 
+
 
 ## Visual Demo
 This demonstation uses the default ```flights.csv``` and ```passengers.dat``` files from the /refs/ directory. 
@@ -79,7 +83,7 @@ It also uses the ```inPassenger.txt``` and then the ```inTicketCheck.txt``` scri
 
 | Program State | Description |
 | ----- | :-----: |
-| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Show%20Menu.png?raw=true "Main Menu") | Main Menu Display |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Updated%20Main%20Menu.png?raw=true "Main Menu") | Main Menu Display |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Current%20Flights%20Menu.png?raw=true "Flights Menu") | Current Flights Menu. This can be customizable if user supplies an input .CSV file. |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20Passenger.png?raw=true "Add Passenger") | Register ```Rebecca Smith``` as a new passenger to ```Flight #552```. Here, ```Seat 8A``` was selected. Ticket Number generated: ```552-42.``` | 
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | Check reservation details with given Ticket Number. This validates and confirms ```Rebecca Smith```'s earlier registration. |
