@@ -3,12 +3,7 @@
 
 
 ## Project Overview
-This program simulates an airline reservation system. 
-
-### Features:
-- Adds new passengers while detecting duplicate requests
-- Maintains various seating capacities across multiple flights
-- Allows user to look up their booking details and optionally cancel their reservations later
+This program simulates an virtual airline reservation system that registers new passengers while detecting duplicate requests, allows users to look up their booking details and optionally cancel their reservations later. Lastly, it maintains various seating capacities across multiple and customizable flights. 
 
 A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#visual-demo).
 
