@@ -11,7 +11,6 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
 ## Table of Contents
 * [How to Run the Program](https://github.com/jschhie/airline-reserv/#how-to-run-the-program)
   * [Input CSV File Formatting](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting)
-  * [Supplying an Input Script](https://github.com/jschhie/airline-reserv/#supplying-an-input-script)
 * [Current Implementation & its Functionality](https://github.com/jschhie/airline-reserv/#program-usage)
   * [Exiting and Saving Changes](https://github.com/jschhie/airline-reserv/#choice-0-exiting-and-saving)
   * [Adding a New Passenger](https://github.com/jschhie/airline-reserv/#choice-1-adding-a-new-passenger)
@@ -44,9 +43,6 @@ The table below summarizes and exemplifies the formatting.
 > REMARK: For the sake of readability, the values listed have been separated by a comma followed by a single whitespace. The actual CSV format requires that they are separated by just a comma. 
 
 </details>
-
-#### Supplying an Input Script
-You can supply an optional script containing your choices/responses with the following command: ```cat inputScript.txt | ./airline.out flights.csv```.
 
 
 ## Program Usage
