@@ -1,6 +1,4 @@
 # Airline Reservation System
-> Created in Spring 2020. Written in C++.
-
 
 ## Project Overview
 This program simulates an virtual airline reservation system that (1) registers new passengers while detecting duplicate requests, (2) allows users to look up their booking details, and (3) optionally cancel their reservations later. Lastly, it maintains various seating capacities across multiple and customizable flights. 
