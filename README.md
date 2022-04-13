@@ -51,7 +51,7 @@ The CSV file should contain all flights' information. See the expected CSV forma
 #### Input CSV File Formatting
 The very first line must state the total number of flights, *k*, for this airline reservation system. The subsequent *k* lines specify each flight's associated flight number, origin, destination, and plane dimensions. Note that only the flight numbers need to be unique. 
 
-The table below summarizes and exemplifies the formatting.
+The table below summarizes and demonstrates the formatting.
 | Line # | Value(s) | Example | Extra Notes |
 | :------: | :-------- | :----------- | :--------|
 | 1 | Number of flights in total |  ```4```| Single Integer, *k* |
@@ -89,7 +89,7 @@ To cancel a reservation, the user needs to provide the corresponding Ticket Numb
 
 
 ## Visual Demo
-This demonstation uses the sample fi;es ```flights.csv``` and ```passengers.dat```. 
+This demonstation uses the sample files ```flights.csv``` and ```passengers.dat```. 
 It also uses the corresponding scripts ```inPassenger.txt``` and ```inTicketCheck.txt```.
 
 | Program State | Description |
