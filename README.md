@@ -15,10 +15,6 @@ A visual demo can be found [here](https://github.com/jschhie/airline-reserv/#vis
 ## Table of Contents
 * [How to Run the Program](https://github.com/jschhie/airline-reserv/#how-to-run-the-program)
   * [Input CSV File Formatting](https://github.com/jschhie/airline-reserv/#input-csv-file-formatting)
-* [Current Features](https://github.com/jschhie/airline-reserv/#current-features)
-  * [Create New Booking](https://github.com/jschhie/airline-reserv/#adding-a-new-passenger)
-  * [Reservation Lookups](https://github.com/jschhie/airline-reserv/#looking-up-reservation-details)
-  * [Cancel Booking](https://github.com/jschhie/airline-reserv/#cancelling-a-reservation)
 * [Visual Demo](https://github.com/jschhie/airline-reserv/#visual-demo)
 
 
@@ -68,24 +64,6 @@ The table below summarizes and demonstrates the formatting.
  <li> The actual CSV format requires that they are separated by just a comma. </li>
  </ul>
 </details>
-
-
-## Current Features
-The systems provides users with the following actions: (1) Adding a passenger, and (2) Looking up reservation details, and (3) Cancelling a reservation. 
-
-
-#### Adding a New Passenger
-The program will first display all flights. Next, the user should provide a flight number and the passenger's name. The system will then prompt the user for a valid/available seating request.
-
-Once the user has successfully booked their reservation, a unique Ticket Number will be generated, which can be used to look up flight details, or cancel a booking. 
-
-
-#### Looking Up Reservation Details
-To look up flight details, the user needs to provide their unique Ticket Number that was generated earlier.
-
-
-#### Cancelling a Reservation
-To cancel a reservation, the user needs to provide the corresponding Ticket Number.
 
 
 ## Visual Demo
