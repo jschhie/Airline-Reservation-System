@@ -1,5 +1,7 @@
 # Airline Reservation System
 
+> Written in C++.
+
 ## Project Overview
 This program simulates an virtual airline reservation system that: 
 <ul>
