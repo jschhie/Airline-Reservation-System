@@ -31,8 +31,7 @@ Additionally, it incorporates scripts:
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Updated%20Main%20Menu.png?raw=true "Main Menu") | <dl> <dt> Main Menu display </dt> </dl> |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Updated%20Flights%20Menu.png?raw=true "Flights Menu") | <dl> <dt> Flights Menu </dt> <dd> Displays all current flights. This can be customized by supplying an input .CSV file. </dd></dl> |
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Add%20New%20Passenger.png?raw=true "Add New Passenger") | <dl> <dt> Create New Booking </dt> <dd> Register Rebecca Smith as a new passenger on Flight #552. </dd> <dd> Selected seat: Seat 8A. Ticket Number: 552-42. </dd> </dl>| 
-| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | <dl> <dt> Flight Lookup </dt> <dd> Check reservation details with the 
- given Ticket Number. </dd> <dd> Confirms ```Rebecca Smith```'s earlier booking. </dd> </dl> |
+| ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/Passenger%20Lookup.png?raw=true "Check Reservation Details") | <dl> <dt> Flight Lookup </dt> <dd> Check reservation details with the given Ticket Number. </dd> <dd> Confirms ```Rebecca Smith```'s earlier booking. </dd> </dl>|
 | ![alt text](https://github.com/jschhie/Airline-Reservation-System/blob/master/demo/New%20Check%20Cancellation.png?raw=true "Cancel Booking") | <dl> <dt> Cancel Booking </dt> <dd> Cancel Rebecca Smith's reservation above. </dd> </dl>|
 
 ## How to Run the Program  
