@@ -67,10 +67,10 @@ Ensure that the CSV file contains all necessary flight information. Refer to the
 #### Input CSV File Formatting
 * The first line must indicate the total number of flights, *k*, for the airline reservation system.
 * The following *k* lines should detail each flight's:
- * Flight number
- * origin
- * destination
- * plane dimensions
+  * Flight number
+  * origin
+  * destination
+  * plane dimensions
 
 > Note: Only the flight number needs to be unique.
 
